@@ -81,7 +81,7 @@
 @keyframes sealIn { from { scale: 0; rotate: -120deg; } to { scale: 1; rotate: 0deg; } }
 
 .shadow { position: absolute; left: 50%; bottom: 19%; width: 70%; height: 70px; transform: translate(-50%, 50%); background: radial-gradient(ellipse at center, rgba(0,0,0,.6), transparent 70%); pointer-events: none; }
-.item { position: absolute; left: 50%; bottom: 20%; height: 66%; opacity: 0; padding: 0; border: 0; background: none; cursor: inherit; transform-origin: 50% 100%; will-change: transform; transform: translateX(-50%); }
+.item { position: absolute; left: 50%; bottom: 20%; height: 66%; opacity: 0; padding: 0; border: 0; background: none; cursor: inherit; transform-origin: 50% 100%; will-change: transform, opacity; transform: translateX(-50%); filter: drop-shadow(0 24px 22px rgba(0,0,0,.45)); }
 .item img { height: 100%; width: auto; display: block; pointer-events: none; -webkit-box-reflect: below 2px linear-gradient(transparent 78%, rgba(255,255,255,.14)); }
 .item:focus-visible { outline: 2px solid var(--color-accent-2-300); outline-offset: 6px; }
 

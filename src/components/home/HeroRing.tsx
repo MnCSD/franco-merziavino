@@ -107,8 +107,12 @@ export function HeroRing({ wines, locale }: { wines: LocalizedWine[]; locale: Lo
     let heroH = heroRef.current?.offsetHeight ?? 1;
     const onResize = () => { heroH = heroRef.current?.offsetHeight ?? 1; };
 
+    let lastFrame = 0;
     const loop = (now: number) => {
       raf = requestAnimationFrame(loop);
+      // Throttle to ~40fps for better performance (25ms between frames)
+      if (now - lastFrame < 25) return;
+      lastFrame = now;
       const stage = stageRef.current;
       if (!stage) return;
 
@@ -140,23 +144,30 @@ export function HeroRing({ wines, locale }: { wines: LocalizedWine[]; locale: Lo
       const R = Math.min(W * 0.3, 520) * (1 + q * 0.7);
       if (orbitRef.current) orbitRef.current.style.width = `${(2 * R * PERSPECTIVE) / (PERSPECTIVE + R) + 160}px`;
 
-      itemsRef.current.forEach((el, i) => {
-        if (!el) return;
+      // Cache stage height for fall calculation
+      const stageH = stage.clientHeight;
+      const bobVal = Math.sin(now / 700) * 7;
+      const items = itemsRef.current;
+      for (let i = 0; i < items.length; i++) {
+        const el = items[i];
+        if (!el) continue;
         const th = ((i * step + s.rot) * Math.PI) / 180;
-        const x = Math.sin(th) * R;
-        const z = Math.cos(th) * R - R;
+        const cosT = Math.cos(th);
+        const sinT = Math.sin(th);
+        const x = sinT * R;
+        const z = cosT * R - R;
         const sc = PERSPECTIVE / (PERSPECTIVE - z);
-        const dp = (Math.cos(th) + 1) / 2;
+        const dp = (cosT + 1) / 2;
         const front = dp > 0.97 && !reduced;
-        const bob = front ? Math.sin(now / 700) * 7 : 0;
-        const fall = reduced ? 0 : dropAt((now - start - (maxDist - dist(i)) * DROP_GAP) / DROP_MS) * -stage.clientHeight;
+        const bob = front ? bobVal : 0;
+        const fall = reduced ? 0 : dropAt((now - start - (maxDist - dist(i)) * DROP_GAP) / DROP_MS) * -stageH;
         const tilt = front ? s.mx * 26 : 0;
-        el.style.transform = `translateX(-50%) translateX(${x * sc}px) translateY(${bob + fall}px) scale(${sc}) rotate(${-lean * (0.4 + 0.6 * dp)}deg) perspective(900px) rotateY(${Math.sin(th) * -22 + tilt}deg)`;
+        el.style.transform = `translateX(-50%) translateX(${x * sc}px) translateY(${bob + fall}px) scale(${sc}) rotate(${-lean * (0.4 + 0.6 * dp)}deg) perspective(900px) rotateY(${sinT * -22 + tilt}deg)`;
         el.style.zIndex = String(Math.round(dp * 100));
-        el.style.opacity = (fall < -stage.clientHeight * 0.92 ? 0 : 0.3 + 0.7 * dp).toFixed(3);
-        // Steeper falloff than opacity so the neighbours recede behind the front bottle's callouts.
-        el.style.filter = `brightness(${(0.32 + 0.68 * dp ** 5).toFixed(3)}) drop-shadow(0 24px 22px rgba(0,0,0,.45))`;
-      });
+        el.style.opacity = (fall < -stageH * 0.92 ? 0 : 0.3 + 0.7 * dp).toFixed(3);
+        // Simplified brightness only - drop-shadow moved to CSS for GPU acceleration
+        el.style.filter = `brightness(${(0.32 + 0.68 * dp ** 5).toFixed(3)})`;
+      }
       // The front bottle's first touchdown sends a ring of dust across the floor.
       if (!landed && now - start - maxDist * DROP_GAP > DROP_MS * 0.21) {
         landed = true;
