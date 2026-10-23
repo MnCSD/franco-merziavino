@@ -116,10 +116,9 @@ export function HeroRing({ wines, locale }: { wines: LocalizedWine[]; locale: Lo
       const stage = stageRef.current;
       if (!stage) return;
 
-      // Cursor follower and parallax ease toward the pointer even before the ring starts.
+      // Cursor follower (parallax disabled for performance)
       s.px += (s.cx - s.px) * 0.18; s.py += (s.cy - s.py) * 0.18;
       if (cursorRef.current) cursorRef.current.style.transform = `translate(${s.px}px, ${s.py}px)`;
-      if (bigRef.current && !reduced) bigRef.current.style.transform = `translate3d(${s.mx * -60}px, ${s.my * -24}px, 0)`;
       if (now < start) return;
 
       // Scroll exit: the ring tips back, spreads and fades as the hero scrolls away.
@@ -144,9 +143,8 @@ export function HeroRing({ wines, locale }: { wines: LocalizedWine[]; locale: Lo
       const R = Math.min(W * 0.3, 520) * (1 + q * 0.7);
       if (orbitRef.current) orbitRef.current.style.width = `${(2 * R * PERSPECTIVE) / (PERSPECTIVE + R) + 160}px`;
 
-      // Cache stage height for fall calculation
+      // Simplified bottle positioning (removed bob, tilt, lean for performance)
       const stageH = stage.clientHeight;
-      const bobVal = Math.sin(now / 700) * 7;
       const items = itemsRef.current;
       for (let i = 0; i < items.length; i++) {
         const el = items[i];
@@ -158,23 +156,14 @@ export function HeroRing({ wines, locale }: { wines: LocalizedWine[]; locale: Lo
         const z = cosT * R - R;
         const sc = PERSPECTIVE / (PERSPECTIVE - z);
         const dp = (cosT + 1) / 2;
-        const front = dp > 0.97 && !reduced;
-        const bob = front ? bobVal : 0;
         const fall = reduced ? 0 : dropAt((now - start - (maxDist - dist(i)) * DROP_GAP) / DROP_MS) * -stageH;
-        const tilt = front ? s.mx * 26 : 0;
-        el.style.transform = `translateX(-50%) translateX(${x * sc}px) translateY(${bob + fall}px) scale(${sc}) rotate(${-lean * (0.4 + 0.6 * dp)}deg) perspective(900px) rotateY(${sinT * -22 + tilt}deg)`;
+        el.style.transform = `translateX(-50%) translateX(${x * sc}px) translateY(${fall}px) scale(${sc})`;
         el.style.zIndex = String(Math.round(dp * 100));
         el.style.opacity = (fall < -stageH * 0.92 ? 0 : 0.3 + 0.7 * dp).toFixed(3);
-        // Simplified brightness only - drop-shadow moved to CSS for GPU acceleration
-        el.style.filter = `brightness(${(0.32 + 0.68 * dp ** 5).toFixed(3)})`;
       }
-      // The front bottle's first touchdown sends a ring of dust across the floor.
+      // Impact animation disabled for performance
       if (!landed && now - start - maxDist * DROP_GAP > DROP_MS * 0.21) {
         landed = true;
-        impactRef.current?.animate(
-          [{ transform: 'translate(-50%, 50%) scale(.2)', opacity: 0.9 }, { transform: 'translate(-50%, 50%) scale(1.6)', opacity: 0 }],
-          { duration: 900, easing: 'cubic-bezier(.2,.7,.3,1)' },
-        );
       }
       // Callouts draw in once the ring comes to rest and ride the front bottle's bob.
       const still = now > introEnd && !s.drag && Math.abs(vel) < 0.8;
