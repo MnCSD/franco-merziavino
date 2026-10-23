@@ -1,0 +1,107 @@
+/* Design tokens — Modernist system, retuned to the Franco Merzia palette (logo burgundy + gold). */
+:root {
+  --color-bg: #f7f3ee;
+  --color-surface: #efe8df;
+  --color-text: #1d1a19;
+  --color-accent: #6b1d28;
+  --color-accent-2: #a8814a;
+  --color-divider: color-mix(in srgb, #1d1a19 32%, transparent);
+
+  --color-neutral-100: #f8f4f4; --color-neutral-200: #eae7e7; --color-neutral-300: #d7d3d3;
+  --color-neutral-400: #bab6b6; --color-neutral-500: #9b9797; --color-neutral-600: #7d7979;
+  --color-neutral-700: #605d5d; --color-neutral-800: #444141; --color-neutral-900: #2d2b2b;
+
+  --color-accent-100: #f7ecec; --color-accent-200: #eed8d9; --color-accent-300: #ddb5b8;
+  --color-accent-400: #b97880; --color-accent-500: #8a3440; --color-accent-600: #571620;
+  --color-accent-700: #47111a; --color-accent-800: #370d14; --color-accent-900: #26090e;
+
+  --color-accent-2-100: #f6efe4; --color-accent-2-200: #ecdfc8; --color-accent-2-300: #dcc59e;
+  --color-accent-2-400: #c4a16d; --color-accent-2-500: #a8814a; --color-accent-2-600: #8a6838;
+  --color-accent-2-700: #6b502b; --color-accent-2-800: #4f3b20;
+
+  --on-dark-line: color-mix(in srgb, #f7f3ee 18%, transparent);
+  --on-dark-border: color-mix(in srgb, #f7f3ee 40%, transparent);
+
+  --font-sans: var(--font-archivo), var(--font-commissioner), system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --container: 1440px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --header-h: 68px;
+  --radius: 0px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, h5 { font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
+p { margin: 0; }
+img { display: block; max-width: 100%; }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+a:hover { color: var(--color-accent-600); }
+button { font: inherit; color: inherit; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent-2-400); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+.container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
+.kicker { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-2-700); }
+.label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-600); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Buttons — labels flush left, zero radius */
+.btn {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 14px 18px; border: 1px solid transparent; border-radius: var(--radius);
+  font-weight: 800; font-size: 16px; line-height: 1.2; text-decoration: none; cursor: pointer;
+  transition: background-color .25s, color .25s, border-color .25s;
+}
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); color: var(--color-bg); }
+.btn-secondary { background: transparent; color: var(--color-text); border: 2px solid var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); color: var(--color-text); }
+.btn-light { background: var(--color-bg); color: var(--color-accent); }
+.btn-light:hover { background: var(--color-accent-2-200); color: var(--color-accent); }
+.btn-ghost-dark { background: transparent; color: var(--color-bg); border-color: var(--on-dark-border); }
+.btn-ghost-dark:hover { background: color-mix(in srgb, #f7f3ee 12%, transparent); color: var(--color-bg); }
+.btn-icon { width: 48px; height: 48px; padding: 0; justify-content: center; }
+
+.tag { display: inline-flex; align-items: center; padding: 3px 10px; font-size: 12px; font-weight: 600; background: var(--color-accent-100); color: var(--color-accent-800); }
+
+.input {
+  width: 100%; min-height: 48px; padding: 10px 12px; font: inherit; font-size: 16px;
+  color: var(--color-text); background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius);
+}
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 100px; resize: vertical; }
+
+/* Scroll reveal (see <Reveal/>) */
+[data-reveal] { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); transition-delay: var(--delay, 0ms); }
+[data-reveal][data-visible='true'] { opacity: 1; transform: none; }
+[data-mask] { display: block; overflow: hidden; padding-bottom: .08em; }
+[data-mask] > span { display: block; transform: translateY(110%); transition: transform 1.2s var(--ease-out); transition-delay: var(--delay, 0ms); }
+[data-mask][data-visible='true'] > span { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  [data-reveal], [data-mask] > span { opacity: 1; transform: none; }
+}
+
+/* Bottle → quick-look morph (WineDrawerProvider): page wipes in, the bottle flies across */
+html[data-vt]::view-transition-old(root) { animation: none; }
+html[data-vt]::view-transition-new(root) { animation: vt-wipe .75s var(--ease-out) both; }
+html[data-vt]::view-transition-group(wine-bottle) { animation-duration: .85s; animation-timing-function: cubic-bezier(.7, 0, .2, 1); z-index: 2; }
+html[data-vt]::view-transition-old(wine-bottle),
+html[data-vt]::view-transition-new(wine-bottle) { width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; animation-duration: .85s; }
+@keyframes vt-wipe { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }

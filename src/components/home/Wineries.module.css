@@ -1,0 +1,10 @@
+.section { padding-block: clamp(72px, 9vw, 140px); }
+.title { margin: 16px 0 40px; font-size: clamp(48px, 7vw, 112px); letter-spacing: -0.04em; line-height: .9; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); border-top: 2px solid var(--color-divider); border-left: 2px solid var(--color-divider); }
+.card { position: relative; overflow: hidden; padding: clamp(28px, 3vw, 48px); border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); display: flex; flex-direction: column; gap: 28px; background: var(--color-bg); transition: background-color .6s ease; }
+.card:hover { background: var(--color-surface); }
+.logo { height: clamp(96px, 9vw, 140px); display: flex; align-items: center; }
+.logo img { max-width: 100%; object-fit: contain; }
+.text { display: flex; flex-direction: column; gap: 16px; max-width: min(100%, 460px); }
+.text h3 { font-size: clamp(36px, 3.8vw, 60px); letter-spacing: -0.04em; line-height: .95; }
+.text p { font-size: 17px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty; }

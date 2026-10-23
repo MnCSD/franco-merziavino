@@ -1,0 +1,9 @@
+.switch { display: flex; border: 1px solid var(--on-dark-border); }
+.opt {
+  display: grid; place-items: center; padding: 8px 10px;
+  font-size: 13px; font-weight: 800; line-height: 1.2; text-decoration: none;
+  color: var(--color-bg); transition: background-color .25s, color .25s;
+}
+.opt:hover { color: var(--color-accent-2-300); }
+.opt[aria-current='true'] { background: var(--color-bg); color: var(--color-accent); }
+.opt[aria-current='true']:hover { color: var(--color-accent); }

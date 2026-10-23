@@ -1,0 +1,11 @@
+.section { padding-block: clamp(80px, 12vw, 160px); }
+.title { margin: 18px 0 24px; font-size: clamp(44px, 7vw, 112px); letter-spacing: -0.045em; line-height: .95; }
+.lead { max-width: 48ch; font-size: clamp(17px, 1.4vw, 20px); color: var(--color-neutral-800); }
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(40px, 6vw, 96px); align-items: start; }
+
+.guideList { border-top: 2px solid var(--color-divider); }
+.guideRow { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--color-divider); }
+.code { font-size: clamp(28px, 3vw, 40px); font-weight: 800; letter-spacing: -0.03em; color: var(--color-accent); line-height: 1; }
+.example { margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--color-accent-2-700); }
+
+@media (max-width: 599px) { .guideRow { grid-template-columns: 1fr; gap: 8px; } }

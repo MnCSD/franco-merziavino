@@ -1,0 +1,31 @@
+.header {
+  position: fixed; inset: 0 0 auto; z-index: 50; color: var(--color-bg);
+  background: color-mix(in srgb, var(--color-accent-900) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid var(--on-dark-line);
+  transition: transform .5s var(--ease-out);
+}
+.header[data-hidden='true'] { transform: translateY(-100%); }
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--color-accent-2-300); transform-origin: 0 50%; transform: scaleX(0); }
+.bar { max-width: var(--container); margin: 0 auto; display: flex; flex-wrap: nowrap; align-items: center; gap: 16px; padding: 12px var(--gutter); }
+
+.brand { display: flex; align-items: center; gap: 12px; margin-right: auto; color: var(--color-bg); text-decoration: none; }
+.brand:hover { color: var(--color-bg); }
+.mark { height: 38px; width: auto; filter: brightness(0) invert(1); }
+.wordmark { display: flex; flex-direction: column; line-height: 1.05; }
+.name { font-weight: 800; font-size: 15px; letter-spacing: .08em; }
+.sub { font-size: 10px; letter-spacing: .36em; color: var(--color-accent-2-300); }
+
+.links { display: none; align-items: center; gap: 28px; }
+.link { color: var(--color-bg); text-decoration: none; font-weight: 600; font-size: 15px; padding: 6px 0; border-bottom: 2px solid transparent; transition: color .25s, border-color .25s; }
+.link:hover { color: var(--color-accent-2-300); border-color: var(--color-accent-2-300); }
+
+.contact {
+  display: none; align-items: center; padding: 11px 18px; font-size: 15px; font-weight: 800; line-height: 1.2;
+  background: var(--color-bg); color: var(--color-accent); text-decoration: none; transition: background-color .25s;
+}
+.contact:hover { background: var(--color-accent-2-200); color: var(--color-accent); }
+
+@media (max-width: 599px) { .wordmark { display: none; } }
+@media (min-width: 600px) { .contact { display: inline-flex; } }
+@media (min-width: 1180px) { .links { display: flex; } }

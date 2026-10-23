@@ -1,0 +1,4 @@
+.cursor { position: fixed; left: 0; top: 0; z-index: 90; pointer-events: none; width: 0; height: 0; }
+.cursor span { position: absolute; left: -48px; top: -48px; width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; background: var(--color-accent); color: var(--color-bg); font-size: 14px; font-weight: 800; letter-spacing: .02em; transform: scale(0); transition: transform .45s var(--ease-out); }
+.cursor[data-on='true'] span { transform: scale(1); }
+:global(html[data-cursor='on'] [data-view]) { cursor: none; }
