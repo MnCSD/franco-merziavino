@@ -3,9 +3,9 @@
 
 .media { position: relative; overflow: hidden; border: 0; padding: 32px 16px 0; height: 340px; display: flex; align-items: flex-end; justify-content: center; cursor: pointer; transition: background-color .6s; font: inherit; }
 .media:focus-visible { outline: 2px solid var(--color-accent-2-400); outline-offset: -4px; }
-.fx { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.fx { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; will-change: contents; }
 .num { position: absolute; left: 14px; bottom: -14px; font-size: 120px; font-weight: 800; line-height: 1; letter-spacing: -0.06em; color: var(--color-text); opacity: .06; }
-.bottle { position: relative; z-index: 1; width: 100%; height: 92%; margin-bottom: -6%; filter: drop-shadow(0 12px 12px rgba(0,0,0,.2)); transition: transform .7s var(--ease-out); }
+.bottle { position: relative; z-index: 1; width: 100%; height: 92%; margin-bottom: -6%; filter: drop-shadow(0 12px 12px rgba(0,0,0,.2)); transition: transform .7s var(--ease-out); will-change: transform; }
 .media:hover .bottle { transform: translateY(-22px) rotate(-3deg); }
 .award { position: absolute; z-index: 2; top: 14px; left: 14px; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 5px 9px; background: var(--color-bg); color: var(--color-accent-2-800); border: 1px solid var(--color-accent-2-400); }
 

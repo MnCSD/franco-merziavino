@@ -166,8 +166,15 @@ export function RegionsMap({ locale, wines }: { locale: Locale; wines: Localized
   useEffect(() => {
     const tilt = tiltRef.current, map = mapRef.current;
     if (!tilt || !map || reduced || !window.matchMedia('(pointer: fine)').matches) return;
-    const lamp = (x: number, y: number) => map.querySelectorAll('[data-light]').forEach((g) => { g.setAttribute('cx', x.toFixed(0)); g.setAttribute('cy', y.toFixed(0)); });
+    // Cache gradient elements to avoid querySelectorAll on every move
+    const lights = map.querySelectorAll('[data-light]');
+    const lamp = (x: number, y: number) => lights.forEach((g) => { g.setAttribute('cx', x.toFixed(0)); g.setAttribute('cy', y.toFixed(0)); });
+    // Throttle mouse move to ~30fps for better performance
+    let lastMove = 0;
     const move = (e: MouseEvent) => {
+      const now = performance.now();
+      if (now - lastMove < 33) return; // ~30fps throttle
+      lastMove = now;
       const b = tilt.getBoundingClientRect(), vb = map.querySelector('svg')?.viewBox.baseVal;
       if (vb) lamp(((e.clientX - b.left) / b.width) * vb.width - PADX, ((e.clientY - b.top) / b.height) * vb.height - PADT);
     };

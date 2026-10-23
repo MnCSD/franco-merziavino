@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm test)",
+      "Bash(npm run build:*)",
+      "Bash(npx vercel --prod)",
+      "Bash(npx vercel:*)",
+      "Bash(find:*)",
+      "Bash(node scripts/optimize-gifts.mjs:*)",
+      "Bash(npm test:*)",
+      "Bash(git config:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(npx tsc:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

@@ -25,7 +25,8 @@ const loop = (still: boolean, el: Element, kf: Keyframe[], o: { duration: number
 /** `k` = panel height / card height (≥1): distances and counts scale up on big panels. */
 const FX: Partial<Record<WineType, Fx>> = {
   sparkling(L, B, still, k) {
-    const n = Math.round((B ? 48 : 22) * Math.min(k, 2.5)), up = 330 * k;
+    // Reduced bubble counts for performance (was 48/22, now 24/12)
+    const n = Math.round((B ? 24 : 12) * Math.min(k, 2.5)), up = 330 * k;
     for (let i = 0; i < n; i++) {
       const d = (Math.random() < 0.75 ? rnd(3, B ? 8 : 7) : rnd(8, B ? 16 : 13)) * Math.sqrt(k);
       const x = B ? rnd(4, 96) : Math.random() < 0.5 ? rnd(8, 36) : rnd(64, 92);
@@ -41,7 +42,8 @@ const FX: Partial<Record<WineType, Fx>> = {
     }
   },
   white(L, B, still, k, calm) {
-    for (let i = 0; i < (B ? 7 : 4); i++) {
+    // Reduced light pool count (was 7/4, now 4/2)
+    for (let i = 0; i < (B ? 4 : 2); i++) {
       const w = rnd(90, 170) * k, h = w * rnd(0.45, 0.7);
       const c = mk(L, `left:${rnd(-10, 70)}%;top:${rnd(-5, 70)}%;width:${w}px;height:${h}px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,236,170,${B ? 0.85 : 0.6}),rgba(240,214,130,${B ? 0.35 : 0.22}) 55%,transparent);filter:blur(${rnd(6, 12) * k}px);mix-blend-mode:multiply`);
       loop(still, c, [
@@ -54,7 +56,8 @@ const FX: Partial<Record<WineType, Fx>> = {
     const sh = mk(L, `inset:0;background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(255,255,255,${B ? 0.28 : 0.18}) 22px 24px,transparent 24px 46px);-webkit-mask:linear-gradient(to top,#000,transparent 70%);mask:linear-gradient(to top,#000,transparent 70%)`);
     loop(still, sh, [{ backgroundPosition: '0 0' }, { backgroundPosition: '92px 0' }], { duration: B ? 5000 : 8000, easing: 'linear' });
     }
-    for (let i = 0; i < Math.round((B ? 26 : 12) * Math.min(k, 2.5)); i++) {
+    // Reduced particle count (was 26/12, now 12/6)
+    for (let i = 0; i < Math.round((B ? 12 : 6) * Math.min(k, 2.5)); i++) {
       const d = rnd(2, B ? 5 : 4) * Math.sqrt(k), s = rnd(-18, 18) * k;
       const m = mk(L, `left:${rnd(4, 96)}%;bottom:${still ? rnd(10, 80) : rnd(-5, 40)}%;width:${d}px;height:${d}px;border-radius:50%;background:#c9a24a;box-shadow:0 0 ${d * 2}px rgba(255,220,130,.9);opacity:${still ? 0.6 : 0}`);
       loop(still, m, [
@@ -67,7 +70,8 @@ const FX: Partial<Record<WineType, Fx>> = {
   },
   rose(L, B, still, k) {
     const down = 360 * k;
-    for (let i = 0; i < Math.round((B ? 16 : 7) * Math.min(k, 2.5)); i++) {
+    // Reduced petal count (was 16/7, now 8/4)
+    for (let i = 0; i < Math.round((B ? 8 : 4) * Math.min(k, 2.5)); i++) {
       const d = rnd(9, B ? 18 : 14) * Math.sqrt(k), s = rnd(14, 34) * sign() * Math.sqrt(k), rot = rnd(180, 540);
       const p = mk(L, `top:${still ? `${rnd(10, 80)}%` : '-24px'};left:${rnd(4, 92)}%;width:${d}px;height:${d * 0.78}px;border-radius:80% 0 80% 0;background:linear-gradient(135deg,#f6c9c3,#e39a93);box-shadow:inset -2px -2px 4px rgba(176,88,84,.25);opacity:.9`);
       loop(still, p, [
@@ -88,7 +92,8 @@ const FX: Partial<Record<WineType, Fx>> = {
     };
     wave('#6b1d28', B ? 34 : 18, (B ? 9000 : 14000) * Math.sqrt(k), B ? 0.22 : 0.12, false);
     wave('#4a1019', B ? 26 : 13, (B ? 6500 : 10000) * Math.sqrt(k), B ? 0.28 : 0.14, true);
-    if (B) for (let i = 0; i < Math.round(6 * Math.min(k, 2)); i++) {
+    // Reduced drip count (was 6, now 3)
+    if (B) for (let i = 0; i < Math.round(3 * Math.min(k, 2)); i++) {
       const d = rnd(4, 8) * Math.sqrt(k);
       const dr = mk(L, `top:-12px;left:${rnd(10, 90)}%;width:${d}px;height:${d * 1.4}px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:#6b1d28;opacity:.55`);
       loop(still, dr, [

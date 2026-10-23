@@ -2453,14 +2453,7 @@ export const WINES: Wine[] = [
       "en": "A cuvée of Pinot Bianco and Pinot Nero vinified as a rosé. 6–8 hours of maceration, gentle pressing and fermentation in stainless-steel tanks at 16–18°C; made sparkling by the Charmat method. Extra Dry."
     },
     "award": "Concours Mondial de Bruxelles 2021 – Ασημένιο",
-    "awards": [
-      {
-        "what": {}
-      },
-      {
-        "what": {}
-      }
-    ]
+    "awards": []
   },
   {
     "slug": "strawberry",
