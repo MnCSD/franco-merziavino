@@ -228,21 +228,7 @@ export function HeroRing({ wines, locale }: { wines: LocalizedWine[]; locale: Lo
     window.addEventListener('pointerup', onUp);
     window.addEventListener('resize', onResize);
 
-    // Rising gold sparks (reduced count for performance)
-    const box = sparksRef.current;
-    if (box && !reduced && !box.childElementCount) {
-      for (let k = 0; k < 12; k++) {
-        const sp = document.createElement('span');
-        const size = 2 + Math.random() * 4;
-        sp.style.cssText = `position:absolute;left:${28 + Math.random() * 44}%;bottom:18%;width:${size}px;height:${size}px;background:var(--color-accent-2-300);transform:rotate(45deg);opacity:0;will-change:transform,opacity`;
-        box.appendChild(sp);
-        const drift = (Math.random() - 0.5) * 140, rise = 280 + Math.random() * 360, dur = 6000 + Math.random() * 5000;
-        sp.animate(
-          [{ transform: 'translate(0,0) rotate(45deg) scale(.4)', opacity: 0 }, { opacity: 0.85, offset: 0.15 }, { transform: `translate(${drift}px,-${rise}px) rotate(225deg) scale(1)`, opacity: 0 }],
-          { duration: dur, delay: -Math.random() * dur, iterations: Infinity, easing: 'cubic-bezier(.3,0,.6,1)' },
-        );
-      }
-    }
+    // Sparks disabled for performance
     return () => { cancelAnimationFrame(raf); io.disconnect(); window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerup', onUp); window.removeEventListener('resize', onResize); start = Infinity; };
   }, [n, step]);
 
