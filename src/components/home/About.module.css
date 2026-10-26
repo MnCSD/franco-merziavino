@@ -13,6 +13,13 @@
     linear-gradient(90deg, rgb(38 9 14 / .35) 0%, transparent 60%),
     linear-gradient(180deg, rgb(38 9 14 / .5) 0%, rgb(38 9 14 / .62) 35%, rgb(38 9 14 / .82) 70%, rgb(38 9 14 / .94) 100%);
 }
+/* Seamless hand-off from the hero: start in its solid burgundy and dissolve into the photo (eased stops avoid banding). */
+.veil::before {
+  content: ''; position: absolute; inset: 0 0 auto; height: clamp(220px, 30vw, 420px);
+  background: linear-gradient(180deg,
+    var(--color-accent-900) 0%, rgb(38 9 14 / .9) 18%, rgb(38 9 14 / .7) 38%,
+    rgb(38 9 14 / .45) 58%, rgb(38 9 14 / .2) 78%, transparent 100%);
+}
 
 .inner { display: flex; flex-direction: column; }
 .top, .history { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(40px, 6vw, 96px); align-items: end; }
