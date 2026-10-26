@@ -7,6 +7,7 @@ import { BodyMeter } from '@/components/wine/BodyMeter';
 import { WineHeroFx } from '@/components/wine/WineHeroFx';
 import { TINT } from '@/components/wine/categoryFx';
 import { Reveal } from '@/components/ui/Reveal';
+import { PartnerBadge } from '@/components/ui/PartnerLogos';
 import { LOCALES, isLocale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import { findWine, slugs } from '@/lib/wines';
@@ -66,6 +67,7 @@ export default async function WinePage({ params }: { params: Params }) {
             <h1 className={styles.title}>{w.name}</h1>
             <p className={styles.notes}>{w.notes}</p>
             <div className={styles.maker} style={{ color: tone.mute }}>{w.maker} · {w.region}</div>
+            <div style={{ color: tone.mute }}><PartnerBadge maker={w.maker} label={t.wine.range} height={44} /></div>
             <div className={styles.meter}>
               {w.body > 0 && <BodyMeter body={w.body} on={tone.seg} off={tone.segOff} labels={[t.wine.light, t.wine.full]} />}
             </div>

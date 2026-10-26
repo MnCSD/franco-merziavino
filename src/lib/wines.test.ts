@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { localize, featured, findWine, slugs, makers, filterWines, filtersToQuery, bestsellers, type WineFilters } from './wines';
+import { byTypeRank, localize, featured, findWine, slugs, makers, filterWines, filtersToQuery, bestsellers, type WineFilters } from './wines';
+import { WINES } from '@/data/wines';
+import { WINERIES } from '@/data/wineries';
 
 describe('wines utilities', () => {
   describe('localize', () => {
@@ -101,7 +103,7 @@ describe('wines utilities', () => {
   });
 
   describe('makers', () => {
-    it('returns sorted unique makers', () => {
+    it('returns unique makers in WINERIES display order', () => {
       const allMakers = makers();
       expect(Array.isArray(allMakers)).toBe(true);
       expect(allMakers.length).toBeGreaterThan(0);
@@ -110,9 +112,28 @@ describe('wines utilities', () => {
       const uniqueSet = new Set(allMakers);
       expect(uniqueSet.size).toBe(allMakers.length);
 
-      // Check sorting
-      const sorted = [...allMakers].sort((a, b) => a.localeCompare(b));
-      expect(allMakers).toEqual(sorted);
+      // Check order and coverage
+      const ordered = WINERIES.map((w) => w.name).filter((n) => allMakers.includes(n));
+      expect(allMakers).toEqual(ordered);
+      expect(new Set(allMakers)).toEqual(new Set(WINES.map((w) => w.maker)));
+      expect(allMakers.at(-1)).toBe('Francesca Mara');
+    });
+  });
+
+  describe('byTypeRank', () => {
+    it('orders red, white, rosé, then 0%, with sparkling by colour', () => {
+      const all = localize('en');
+      const pick = (slug: string) => all.find((w) => w.slug === slug)!;
+      const order = byTypeRank(['zero-sparkling-rose', 'rivani-pinot-rose', 'moscato-spumante', 'spritz'].map(pick)).map((w) => w.slug);
+      expect(order.slice(0, 2)).toEqual(['moscato-spumante', 'rivani-pinot-rose']);
+      expect(order.slice(2).sort()).toEqual(['spritz', 'zero-sparkling-rose']);
+
+      // "Prosecco" contains "rose" but is a white sparkling.
+      expect(byTypeRank(['bdl-cuvee-rose', 'bdl-doc-brut'].map(pick)).map((w) => w.slug)).toEqual(['bdl-doc-brut', 'bdl-cuvee-rose']);
+
+      const ranks = byTypeRank(all).map((w) => (w.alcoholFree ? 3 : w.type === 'red' ? 0 : -1));
+      expect(ranks.indexOf(3)).toBe(ranks.length - ranks.filter((r) => r === 3).length);
+      expect(ranks.lastIndexOf(0)).toBe(ranks.filter((r) => r === 0).length - 1);
     });
   });
 

@@ -1,0 +1,57 @@
+/* Full-bleed vineyard photo; a burgundy veil keeps the copy at AA contrast. */
+.section {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding-block: clamp(96px, 12vw, 180px);
+  color: var(--color-bg);
+  background: var(--color-accent-900);
+}
+.photo { z-index: -2; object-fit: cover; object-position: center 50%; }
+/* Lighter over the sunset sky, deepening toward the vines and the company cards. */
+.veil {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(38 9 14 / .35) 0%, transparent 60%),
+    linear-gradient(180deg, rgb(38 9 14 / .5) 0%, rgb(38 9 14 / .62) 35%, rgb(38 9 14 / .82) 70%, rgb(38 9 14 / .94) 100%);
+}
+
+.inner { display: flex; flex-direction: column; }
+.top, .history { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(40px, 6vw, 96px); align-items: end; }
+.kicker { color: var(--color-accent-2-300); }
+.title { margin: 18px 0 12px; font-size: clamp(44px, 7vw, 112px); letter-spacing: -0.045em; line-height: .95; }
+.tagline { font-size: clamp(20px, 1.8vw, 26px); font-style: italic; font-weight: 500; color: var(--color-accent-2-300); }
+.lede { margin-top: clamp(24px, 3vw, 40px); max-width: 22ch; font-size: clamp(26px, 2.6vw, 40px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; text-wrap: balance; }
+.body { display: flex; flex-direction: column; gap: 16px; max-width: 62ch; }
+.body p { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.65; color: color-mix(in srgb, var(--color-bg) 84%, transparent); text-wrap: pretty; }
+
+.history { margin-top: clamp(64px, 8vw, 120px); padding-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--on-dark-border); align-items: start; }
+.historyTitle { margin-bottom: 8px; font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.035em; line-height: 1; }
+.milestones { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 40px); }
+.milestone { display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 2px solid var(--color-accent-2-400); }
+.year { font-size: clamp(56px, 7vw, 112px); font-weight: 800; letter-spacing: -0.05em; line-height: .85; color: var(--color-accent-2-300); font-variant-numeric: tabular-nums; }
+.yearText { font-size: 15px; line-height: 1.45; color: color-mix(in srgb, var(--color-bg) 80%, transparent); }
+
+.subhead { margin: clamp(64px, 8vw, 120px) 0 20px; color: var(--color-accent-2-300); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); border-top: 1px solid var(--on-dark-border); border-left: 1px solid var(--on-dark-border); }
+.card {
+  display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); gap: clamp(20px, 2.4vw, 36px); align-items: center;
+  padding: clamp(20px, 2.4vw, 32px);
+  border-right: 1px solid var(--on-dark-border); border-bottom: 1px solid var(--on-dark-border);
+  background: rgb(38 9 14 / .35); backdrop-filter: blur(6px);
+  transition: background-color .6s ease;
+}
+.card:hover { background: rgb(38 9 14 / .6); }
+
+.plate { aspect-ratio: 1; display: grid; place-items: center; overflow: hidden; }
+.plate img { width: 100%; height: 100%; object-fit: contain; }
+.plateLight { background: var(--color-bg); padding: 10%; }
+.plateDark { background: #000; }
+
+.text { display: flex; flex-direction: column; gap: 12px; }
+.text h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.035em; line-height: 1; }
+.text p { font-size: 16px; line-height: 1.55; color: color-mix(in srgb, var(--color-bg) 80%, transparent); text-wrap: pretty; }
+
+@media (max-width: 599px) {
+  .card { grid-template-columns: 1fr; }
+  .plate { max-width: 220px; }
+  .veil { background: linear-gradient(180deg, rgb(38 9 14 / .68), rgb(38 9 14 / .9)); }
+}

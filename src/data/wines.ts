@@ -1,7 +1,7 @@
 import type { Wine } from '@/types/wine';
 
 /**
- * Single source of truth for the catalogue (generated from the design's wines.js — 64 wines that have both a data sheet and a bottle photo).
+ * Single source of truth for the catalogue (generated from the design's wines.js, plus the Lunadoro range — every wine has both a data sheet and a bottle photo).
  * Add a wine: append an object here and drop its bottle PNG (transparent background)
  * into /public/images/bottles/<slug>.png (`npm run dev`/`build` turn it into the WebP the site serves). Set `featured: true` to include it in the
  * home-page hero ring and collection story. `body: 0` = no body rating on the data sheet.
@@ -11,8 +11,8 @@ import type { Wine } from '@/types/wine';
 export const WINES: Wine[] = [
   {
     "slug": "bacio-della-luna",
-    "short": "Bacio della Luna",
-    "name": "Bacio della Luna Prosecco Conegliano Valdobbiadene DOCG Extra Brut",
+    "short": "Valdobbiadene Extra Brut",
+    "name": "Bacio della Luna Valdobbiadene Prosecco Superiore DOCG Millesimato Extra Brut",
     "maker": "Bacio della Luna",
     "type": "sparkling",
     "region": {
@@ -21,8 +21,8 @@ export const WINES: Wine[] = [
     },
     "appellation": "DOCG",
     "grapes": "Glera",
-    "abv": "",
-    "serve": "",
+    "abv": "11%",
+    "serve": "8–10°C",
     "body": 0,
     "pairings": [
       "aperitif",
@@ -30,20 +30,24 @@ export const WINES: Wine[] = [
     ],
     "featured": true,
     "notes": {
-      "el": "",
-      "en": ""
+      "el": "Ακακία, γλυσίνα, αχλάδι, ροδάκινο",
+      "en": "Acacia, wisteria, pear, peach"
     },
     "pairsShort": {
-      "el": "",
-      "en": ""
+      "el": "Απεριτίφ, θαλασσινά, εξωτική κουζίνα",
+      "en": "Aperitif, seafood, exotic cuisine"
     },
     "profile": {
-      "el": "",
-      "en": ""
+      "el": "Λεπτό και ισορροπημένο, με λαμπερό αχυροκίτρινο χρώμα και πολύ λεπτό perlage. Χαρακτηρίζεται από λεπτό μπουκέτο από άνθη ακακίας και γλυσίνας, με απαλό άρωμα φρέσκων φρούτων όπως αχλάδι και ροδάκινο.",
+      "en": "Fine and balanced, with a bright straw-yellow colour and a very fine perlage. A delicate bouquet of acacia and wisteria flowers, with a soft fragrance of fresh fruit such as pear and peach."
     },
     "pairing": {
-      "el": "",
-      "en": ""
+      "el": "Ιδανικό ως απεριτίφ, με θαλασσινά και εξωτική κουζίνα.",
+      "en": "Perfect as an aperitif, with seafood and exotic cuisine."
+    },
+    "making": {
+      "el": "Τα σταφύλια καλλιεργούνται στους λόφους του Valdobbiadene, τρυγιούνται με το χέρι σε μικρά κιβώτια και πιέζονται απαλά. Ο μούστος ψύχεται και φιλτράρεται και ζυμώνεται σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία 16–18°C. Μετά τη σταθεροποίηση ακολουθεί δεύτερη ζύμωση με τη μέθοδο Charmat. Extra Brut, σάκχαρα 3 g/l.",
+      "en": "The grapes grow on the Valdobbiadene hillside, are hand-harvested into small boxes and softly pressed. The must is chilled and filtered, then fermented in stainless-steel tanks at a controlled 16–18°C. After stabilisation, the second fermentation follows by the Charmat method. Extra Brut, 3 g/l sugar."
     },
     "awards": []
   },
@@ -1142,17 +1146,17 @@ export const WINES: Wine[] = [
   {
     "slug": "casato-pinot-grigio",
     "short": "Il Casato Pinot Grigio",
-    "name": "Il Casato Pinot Grigio Valdadige",
+    "name": "Il Casato Pinot Grigio Valdadige DOC",
     "maker": "Il Casato",
     "type": "white",
     "region": {
       "el": "Valdadige",
       "en": "Valdadige"
     },
-    "appellation": "",
+    "appellation": "DOC",
     "grapes": "Pinot Grigio",
-    "abv": "",
-    "serve": "",
+    "abv": "13%",
+    "serve": "10–12°C",
     "body": 0,
     "pairings": [
       "aperitif",
@@ -1185,17 +1189,17 @@ export const WINES: Wine[] = [
   {
     "slug": "casato-pg-rose",
     "short": "Il Casato Rosé",
-    "name": "Il Casato Pinot Grigio delle Venezie Rosé",
+    "name": "Il Casato Pinot Grigio delle Venezie Rosé DOC",
     "maker": "Il Casato",
     "type": "rose",
     "region": {
       "el": "Τρεντίνο · Βένετο",
       "en": "Trentino · Veneto"
     },
-    "appellation": "",
+    "appellation": "DOC",
     "grapes": "Pinot Grigio",
-    "abv": "",
-    "serve": "",
+    "abv": "12,5%",
+    "serve": "8–10°C",
     "body": 0,
     "pairings": [
       "aperitif",
@@ -1227,17 +1231,17 @@ export const WINES: Wine[] = [
   {
     "slug": "casato-sauvignon",
     "short": "Il Casato Sauvignon",
-    "name": "Il Casato Sauvignon Blanc Friuli",
+    "name": "Il Casato Sauvignon Blanc Friuli DOC",
     "maker": "Il Casato",
     "type": "white",
     "region": {
       "el": "Φρίουλι",
       "en": "Friuli"
     },
-    "appellation": "",
+    "appellation": "DOC",
     "grapes": "Sauvignon Blanc",
-    "abv": "",
-    "serve": "",
+    "abv": "13%",
+    "serve": "12–14°C",
     "body": 0,
     "pairings": [
       "fish",
@@ -1268,17 +1272,17 @@ export const WINES: Wine[] = [
   {
     "slug": "casato-teroldego",
     "short": "Il Casato Teroldego",
-    "name": "Il Casato Teroldego IGT",
+    "name": "Il Casato Teroldego Vigneti delle Dolomiti IGT",
     "maker": "Il Casato",
     "type": "red",
     "region": {
-      "el": "",
-      "en": ""
+      "el": "Valdadige",
+      "en": "Valdadige"
     },
     "appellation": "IGT",
     "grapes": "Teroldego",
-    "abv": "",
-    "serve": "",
+    "abv": "13,5%",
+    "serve": "18–20°C",
     "body": 4,
     "pairings": [
       "red",
@@ -1317,7 +1321,7 @@ export const WINES: Wine[] = [
       "en": "Apulia"
     },
     "appellation": "IGT",
-    "abv": "",
+    "abv": "15%",
     "serve": "16°C",
     "body": 5,
     "pairings": [
@@ -1456,7 +1460,7 @@ export const WINES: Wine[] = [
     },
     "appellation": "IGT · BIO",
     "grapes": "Negroamaro",
-    "abv": "",
+    "abv": "13,5%",
     "serve": "16–18°C",
     "body": 4,
     "pairings": [
@@ -1610,19 +1614,23 @@ export const WINES: Wine[] = [
       "en": "Aperitif, seafood"
     },
     "profile": {
-      "el": "Λαμπερό αχυροκίτρινο με πράσινες ανταύγειες και λεπτό, επίμονο perlage. Λεπτή, φρουτώδης μύτη με λευκά λουλούδια· στο στόμα ώριμο μήλο και ροδάκινο με δροσερή επίγευση.",
-      "en": "Brilliant straw yellow with green hints and a fine, persistent perlage. A delicate, fruity nose of white flowers; ripe apple and peach on the palate with a refreshing finish."
+      "el": "Λαμπερό αχυροκίτρινο με πράσινες ανταύγειες και λεπτό, επίμονο perlage. Λεπτή, φρουτώδης μύτη με λευκά λουλούδια· στο στόμα ώριμο μήλο και ροδάκινο με δροσερή επίγευση και ισορροπημένη οξύτητα.",
+      "en": "Brilliant straw yellow with green hints and a fine, persistent perlage. A delicate, fruity nose of white flowers; ripe apple and peach on the palate with a refreshing finish and well-balanced acidity."
     },
     "pairing": {
       "el": "Ιδανικό ως απεριτίφ και εξαιρετικό με θαλασσινά.",
       "en": "Ideal as an aperitif and an excellent match with seafood."
+    },
+    "making": {
+      "el": "Τα σταφύλια καλλιεργούνται στους λόφους του Τρεβίζο, τρυγιούνται με το χέρι σε κιβώτια και πιέζονται απαλά. Ο μούστος ψύχεται και φιλτράρεται και ζυμώνεται σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία 18–22°C· ακολουθούν η σταθεροποίηση και η μέθοδος Charmat. Brut, σάκχαρα 11 g/l.",
+      "en": "The grapes are grown on the hills of Treviso, hand-harvested into boxes and softly pressed. The must is chilled and filtered, then fermented in temperature-controlled stainless-steel tanks at 18–22°C, followed by stabilisation and the Charmat method. Brut, 11 g/l sugar."
     },
     "awards": []
   },
   {
     "slug": "bdl-docg-brut",
     "short": "Prosecco DOCG Brut",
-    "name": "Bacio della Luna Prosecco Valdobbiadene Superiore DOCG Brut",
+    "name": "Bacio della Luna Valdobbiadene Prosecco Superiore DOCG Brut",
     "maker": "Bacio della Luna",
     "type": "sparkling",
     "region": {
@@ -1631,39 +1639,41 @@ export const WINES: Wine[] = [
     },
     "appellation": "DOCG",
     "grapes": "Glera",
-    "abv": "",
+    "abv": "11%",
     "serve": "8–10°C",
     "body": 0,
     "pairings": [
       "aperitif",
+      "white",
+      "cheese",
       "celebration"
     ],
     "notes": {
-      "el": "Λουλούδια, φρέσκα φρούτα",
-      "en": "Flowers, fresh fruit"
+      "el": "Λουλούδια, ώριμα φρούτα",
+      "en": "Flowers, ripe fruit"
     },
     "pairsShort": {
-      "el": "Απεριτίφ, λευκό κρέας",
-      "en": "Aperitif, white meat"
+      "el": "Απεριτίφ, λευκό κρέας, τυριά",
+      "en": "Aperitif, white meat, cheese"
     },
     "profile": {
-      "el": "Λεπτό και ισορροπημένο, με λαμπερό αχυροκίτρινο χρώμα. Ξεχωρίζει για το λουλουδάτο μπουκέτο και το άρωμα φρέσκων φρούτων· στο στόμα αρμονικό, με μοναδική φρεσκάδα.",
-      "en": "Delicate and balanced, with a bright straw-yellow colour. It stands out for its floral bouquet and fresh-fruit aroma; harmonious on the palate, with a unique freshness."
+      "el": "Λεπτό και ισορροπημένο, με λαμπερό αχυροκίτρινο χρώμα. Ξεχωρίζει για το λουλουδάτο μπουκέτο και τα αρώματα ώριμων φρούτων· στο στόμα αρμονικό, με μοναδική, ζωηρή φρεσκάδα.",
+      "en": "Fine and balanced, with a bright straw-yellow colour. It stands out for its floral bouquet and scents of ripe fruit; harmonious on the palate and unique for its lively freshness."
     },
     "pairing": {
-      "el": "Ιδανικό ως απεριτίφ ή με λευκό κρέας. Το σωστό κρασί για κάθε ξεχωριστή περίσταση.",
-      "en": "Ideal as an aperitif or with white meat. The right wine for every special occasion."
+      "el": "Ιδανικό ως απεριτίφ ή με λευκό κρέας και τυριά. Το σωστό κρασί για κάθε ξεχωριστή περίσταση.",
+      "en": "Perfect as an aperitif or with white meat and cheese. The right wine for every special occasion."
     },
     "making": {
-      "el": "Τα σταφύλια καλλιεργούνται στους λόφους του Valdobbiadene, τρυγιούνται σε μικρά κιβώτια και πιέζονται απαλά. Ζύμωση σε ανοξείδωτες δεξαμενές στους 18–22°C και δεύτερη ζύμωση με τη μέθοδο Charmat.",
-      "en": "The grapes are grown on the hills of Valdobbiadene, harvested into small crates and gently pressed. Fermented in stainless-steel tanks at 18–22°C, followed by a second fermentation using the Charmat method."
+      "el": "Τα σταφύλια καλλιεργούνται στους λόφους του Valdobbiadene, τρυγιούνται με το χέρι σε μικρά κιβώτια και πιέζονται απαλά. Ο μούστος ψύχεται και φιλτράρεται και ζυμώνεται σε ανοξείδωτες δεξαμενές στους 18–22°C· ακολουθούν σταθεροποίηση και δεύτερη ζύμωση με τη μέθοδο Charmat, σύμφωνα με τους κανόνες της DOCG Conegliano Valdobbiadene. Brut, σάκχαρα 11 g/l.",
+      "en": "The grapes grow on the Valdobbiadene hillside, are hand-harvested into small boxes and softly pressed. The must is chilled and filtered, then fermented in stainless-steel tanks at 18–22°C, followed by stabilisation and a second fermentation by the Charmat method, all under the Conegliano Valdobbiadene DOCG rules. Brut, 11 g/l sugar."
     },
     "awards": []
   },
   {
     "slug": "bdl-cartizze",
     "short": "Cartizze",
-    "name": "Bacio della Luna Valdobbiadene Superiore di Cartizze DOCG",
+    "name": "Bacio della Luna Valdobbiadene Superiore di Cartizze DOCG Dry",
     "maker": "Bacio della Luna",
     "type": "sparkling",
     "region": {
@@ -1672,7 +1682,7 @@ export const WINES: Wine[] = [
     },
     "appellation": "DOCG",
     "grapes": "Glera",
-    "abv": "",
+    "abv": "11%",
     "serve": "8–10°C",
     "body": 0,
     "pairings": [
@@ -1696,15 +1706,15 @@ export const WINES: Wine[] = [
       "en": "Ideal as an aperitif, for every special occasion."
     },
     "making": {
-      "el": "Τα σταφύλια προέρχονται από τον λόφο του Cartizze, στην περιοχή του Valdobbiadene. Τρυγιούνται σε κιβώτια και πιέζονται απαλά· ζύμωση σε ανοξείδωτες δεξαμενές στους 18–22°C και αφρώδης οινοποίηση με τη μέθοδο Charmat. Dry.",
-      "en": "The grapes come from the Cartizze hill in the Valdobbiadene area. Harvested into crates and gently pressed; fermented in stainless-steel tanks at 18–22°C and made sparkling by the Charmat method. Dry."
+      "el": "Τα σταφύλια προέρχονται από τον λόφο του Cartizze, στην περιοχή του Valdobbiadene. Τρυγιούνται σε κιβώτια και πιέζονται απαλά· ζύμωση σε ανοξείδωτες δεξαμενές στους 18–22°C και αφρώδης οινοποίηση με τη μέθοδο Charmat. Dry, σάκχαρα 20 g/l.",
+      "en": "The grapes come from the Cartizze hill in the Valdobbiadene area. Harvested into crates and gently pressed; fermented in stainless-steel tanks at 18–22°C and made sparkling by the Charmat method. Dry, 20 g/l sugar."
     },
     "awards": []
   },
   {
     "slug": "bdl-cuvee-bianco",
     "short": "Cuvée Bianco",
-    "name": "Bacio della Luna Spumante Bianco",
+    "name": "Bacio della Luna Cuvée Bianco Brut",
     "maker": "Bacio della Luna",
     "type": "sparkling",
     "region": {
@@ -1712,39 +1722,42 @@ export const WINES: Wine[] = [
       "en": "Veneto"
     },
     "appellation": "",
-    "grapes": "Glera και άλλες ποικιλίες της Βόρειας Ιταλίας",
-    "abv": "",
+    "grapes": {
+      "el": "Glera και άλλες ποικιλίες της Βόρειας Ιταλίας",
+      "en": "Glera and other Northern Italian varieties"
+    },
+    "abv": "11%",
     "serve": "8–10°C",
     "body": 0,
     "pairings": [
       "aperitif"
     ],
     "notes": {
-      "el": "Πράσινο μήλο, γλυσίνα, ροδάκινο",
-      "en": "Green apple, wisteria, peach"
+      "el": "Πράσινο μήλο, γλυσίνα, ροδάκινο, ακακία",
+      "en": "Green apple, wisteria, peach, acacia"
     },
     "pairsShort": {
       "el": "Απεριτίφ, κάθε περίσταση",
       "en": "Aperitif, any occasion"
     },
     "profile": {
-      "el": "Λαμπερό αχυροκίτρινο χρώμα με λεπτό perlage. Έντονο και γοητευτικό μπουκέτο, με φρέσκο πράσινο μήλο, γλυσίνα και ροδάκινο· στο στόμα πλούσιο και έντονο.",
-      "en": "Bright straw yellow with a fine perlage. An intense, charming bouquet of fresh green apple, wisteria and peach; rich and intense on the palate."
+      "el": "Λαμπερό αχυροκίτρινο χρώμα με λεπτό, ζωηρό perlage. Έντονο και γοητευτικό μπουκέτο, ισορροπημένο ανάμεσα σε φρέσκο πράσινο μήλο, γλυσίνα, ροδάκινο και άνθη ακακίας· στο στόμα πλούσιο και έντονο, αλλά ταυτόχρονα απαλό και φρέσκο.",
+      "en": "Brilliant straw yellow with a fine, lively perlage. An intense, charming bouquet, well balanced between fresh green apple, wisteria, peach and acacia flowers; rich and intense on the palate, yet soft and fresh."
     },
     "pairing": {
       "el": "Ιδανικό για κάθε περίσταση, τέλειο ως απεριτίφ ή με ελαφριά πιάτα.",
       "en": "Ideal for any occasion, perfect as an aperitif or with light dishes."
     },
     "making": {
-      "el": "Μετά τον τρύγο τα σταφύλια πιέζονται απαλά για τον «Mosto Fiore». Μετά την καθίζηση και το φιλτράρισμα, ζύμωση με επιλεγμένες ζύμες σε ελεγχόμενη θερμοκρασία· η cuvée αναμειγνύεται πριν από τη δεύτερη ζύμωση σε δεξαμενή πίεσης. Brut.",
-      "en": "After harvest the grapes are gently pressed to obtain the “Mosto Fiore”. After settling and filtering, it is fermented with selected yeasts at a controlled temperature; the cuvée is blended before the second fermentation in a pressure tank. Brut."
+      "el": "Μετά τον τρύγο τα σταφύλια πιέζονται απαλά για τον «Mosto Fiore». Μετά την καθίζηση και το φιλτράρισμα, ζύμωση με επιλεγμένες ζύμες σε ελεγχόμενη θερμοκρασία 16–18°C· η cuvée αναμειγνύεται πριν από τη δεύτερη ζύμωση σε δεξαμενή πίεσης. Brut, σάκχαρα 11 g/l.",
+      "en": "After harvest the grapes are gently pressed to obtain the “Mosto Fiore”. After settling and filtering, it is fermented with selected yeasts at a controlled 16–18°C; the cuvée is blended before the second fermentation in a pressure tank. Brut, 11 g/l sugar."
     },
     "awards": []
   },
   {
     "slug": "bdl-cuvee-rose",
     "short": "Cuvée Rosé",
-    "name": "Bacio della Luna Spumante Rosato",
+    "name": "Bacio della Luna Cuvée Rosé Brut",
     "maker": "Bacio della Luna",
     "type": "sparkling",
     "region": {
@@ -1753,31 +1766,32 @@ export const WINES: Wine[] = [
     },
     "appellation": "",
     "grapes": "Glera, Pinot Nero",
-    "abv": "",
+    "abv": "11%",
     "serve": "8–10°C",
     "body": 0,
     "pairings": [
-      "aperitif"
+      "aperitif",
+      "cheese"
     ],
     "notes": {
       "el": "Φρουτώδες, νότες βιολέτας",
       "en": "Fruity, hints of violet"
     },
     "pairsShort": {
-      "el": "Ορεκτικά, πρώτα πιάτα",
-      "en": "Starters, first courses"
+      "el": "Ορεκτικά, πρώτα πιάτα, ήπια τυριά",
+      "en": "Starters, first courses, mild cheeses"
     },
     "profile": {
-      "el": "Πολύ φρέσκο και ισορροπημένο, με ροζ χρώμα και λεπτό, επίμονο perlage. Φρουτώδες άρωμα με διακριτικές νότες βιολέτας· στο στόμα φρέσκο και αφρώδες, με καλό σώμα και τη σωστή αλμυράδα.",
-      "en": "Very fresh and balanced, with a pink colour and a fine, persistent perlage. A fruity aroma with subtle hints of violet; fresh and sparkling on the palate, with good body and just the right savouriness."
+      "el": "Πολύ φρέσκο και ισορροπημένο, με απαλό, ανοιχτό ροζ χρώμα και λεπτό, επίμονο perlage. Φρουτώδες άρωμα με διακριτικές νότες βιολέτας· στο στόμα φρέσκο και αφρώδες, με καλό σώμα και τη σωστή αλμυράδα.",
+      "en": "Very fresh and balanced, with a delicate pale pink colour and a fine, persistent perlage. A fruity aroma with subtle hints of violet; fresh and sparkling on the palate, with good body and just the right savouriness."
     },
     "pairing": {
-      "el": "Ιδανικό με ορεκτικά, πρώτα πιάτα και ήπιας γεύσης φαγητά.",
-      "en": "Ideal with starters, first courses and mildly flavoured dishes."
+      "el": "Ιδανικό με ορεκτικά, πρώτα πιάτα και τυριά ήπιας γεύσης.",
+      "en": "Ideal with starters, first courses and mild-flavoured cheeses."
     },
     "making": {
-      "el": "Τα λευκά σταφύλια πιέζονται απαλά, ενώ τα κόκκινα κάνουν σύντομη εκχύλιση. Ο λευκός μούστος αναμειγνύεται με μικρό ποσοστό κόκκινου κρασιού και ζυμώνεται σε ειδικές δεξαμενές· η ζύμωση σταματά με ψύξη και ακολουθεί παραμονή στις οινολάσπες. Brut.",
-      "en": "The white grapes are gently pressed while the red grapes undergo a short maceration. The white must is blended with a small share of red wine and fermented in special tanks; fermentation is stopped by chilling, followed by a rest on the lees. Brut."
+      "el": "Τα λευκά σταφύλια πιέζονται απαλά, ενώ τα κόκκινα κάνουν σύντομη εκχύλιση. Ο λευκός μούστος αναμειγνύεται με μικρό ποσοστό κόκκινου κρασιού και ζυμώνεται σε ειδικές δεξαμενές· η ζύμωση σταματά με ψύξη και ακολουθεί παραμονή στις οινολάσπες. Brut, σάκχαρα 11 g/l.",
+      "en": "The white grapes are gently pressed while the red grapes undergo a short maceration. The white must is blended with a small share of red wine and fermented in special tanks; fermentation is stopped by chilling, followed by a rest on the lees. Brut, 11 g/l sugar."
     },
     "awards": []
   },
@@ -1868,8 +1882,8 @@ export const WINES: Wine[] = [
     },
     "appellation": "IGT · BIO",
     "grapes": "Chardonnay",
-    "abv": "",
-    "serve": "",
+    "abv": "12,5%",
+    "serve": "14–16°C",
     "body": 0,
     "pairings": [
       "aperitif",
@@ -1892,6 +1906,10 @@ export const WINES: Wine[] = [
       "el": "Εξαιρετικό ως απεριτίφ, ιδανικό με οστρακοειδή και ωμά λαχανικά. Συνοδεύει πρώτα και κύρια πιάτα με ψάρι και φρέσκα τυριά.",
       "en": "Excellent as an aperitif; ideal with shellfish and raw vegetables. Pairs with fish starters and mains and with fresh cheeses."
     },
+    "making": {
+      "el": "Ο τρύγος πραγματοποιείται στις αρχές Σεπτεμβρίου. Μετά την πίεση, το 50% του μούστου ζυμώνεται σε ανοξείδωτες δεξαμενές στους 18°C και το υπόλοιπο σε ξύλινα βαρέλια. Μετά από 3 μήνες παλαίωσης πάνω στις οινολάσπες, το κρασί προετοιμάζεται για εμφιάλωση.",
+      "en": "Harvested in early September. After pressing, half of the must ferments in stainless-steel tanks at 18°C and the rest in wooden barrels. After 3 months on the lees, the wine is prepared for bottling."
+    },
     "awards": []
   },
   {
@@ -1907,8 +1925,8 @@ export const WINES: Wine[] = [
     },
     "appellation": "IGT · BIO",
     "grapes": "Verdeca, Chardonnay",
-    "abv": "",
-    "serve": "",
+    "abv": "12,5%",
+    "serve": "8–12°C",
     "body": 0,
     "pairings": [
       "fish",
@@ -1931,12 +1949,16 @@ export const WINES: Wine[] = [
       "el": "Ιδανικό με πιάτα θαλασσινών, λαχανικών και φρέσκων τυριών.",
       "en": "Ideal with seafood, vegetable dishes and fresh cheeses."
     },
+    "making": {
+      "el": "Χαρμάνι από Verdeca της κοιλάδας Ίτρια και Chardonnay, από βιολογική καλλιέργεια, με τρύγο αποκλειστικά τον Σεπτέμβριο. Μετά την πίεση και την απορράγιση, ο μούστος μένει σε επαφή με τις φλούδες για λίγες ώρες σε χαμηλή θερμοκρασία, για την ανάδειξη των αρωμάτων. Ακολουθούν αλκοολική ζύμωση και ωρίμαση σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία.",
+      "en": "A blend of Verdeca from the Itria Valley and Chardonnay, organically farmed and harvested only in September. After pressing and destemming, the must stays on the skins for a few hours at low temperature to bring out the aromas, then ferments and matures in temperature-controlled stainless-steel tanks."
+    },
     "awards": []
   },
   {
     "slug": "ma-ice",
     "short": "Masso Antico ICE",
-    "name": "Masso Antico ICE Salento IGT",
+    "name": "Masso Antico Primitivo ICE Salento IGT",
     "maker": "Masso Antico",
     "type": "red",
     "region": {
@@ -1944,7 +1966,8 @@ export const WINES: Wine[] = [
       "en": "Apulia"
     },
     "appellation": "IGT",
-    "abv": "",
+    "grapes": "Primitivo",
+    "abv": "12,5%",
     "serve": "8–10°C",
     "body": 0,
     "pairings": [
@@ -1968,6 +1991,10 @@ export const WINES: Wine[] = [
       "el": "Συνδυάζεται με πολλά πιάτα: τυριά, μακαρονάδες ή gnocchi με κόκκινη σάλτσα και ψητά κρέατα.",
       "en": "Pairs with a wide range of dishes: cheese, pasta or gnocchi with red sauce, and grilled meat."
     },
+    "making": {
+      "el": "Τα σταφύλια καλλιεργούνται με το παραδοσιακό σύστημα της Απουλίας, τρυγιούνται με το χέρι το πρώτο δεκαήμερο του Σεπτεμβρίου και υποβάλλονται σε μαλακή έκθλιψη. Η ζύμωση γίνεται σε ανοξείδωτες δεξαμενές στους 16°C με ξηρό πάγο· μέρος του κρασιού κάνει μηλογαλακτική ζύμωση για περισσότερη φρεσκάδα.",
+      "en": "The grapes are grown in Apulia’s traditional way, hand-harvested in the first ten days of September and softly pressed. Fermentation takes place in stainless-steel tanks at 16°C with dry ice; part of the wine undergoes malolactic fermentation for extra freshness."
+    },
     "tip": {
       "el": "Το λογότυπο της ετικέτας γίνεται μπλε όταν το κρασί φτάσει στους 8°C.",
       "en": "The label logo turns blue when the wine reaches 8°C."
@@ -1986,8 +2013,8 @@ export const WINES: Wine[] = [
     },
     "appellation": "",
     "grapes": "Negroamaro",
-    "abv": "",
-    "serve": "",
+    "abv": "12%",
+    "serve": "6°C",
     "body": 0,
     "pairings": [
       "aperitif",
@@ -2049,6 +2076,10 @@ export const WINES: Wine[] = [
     "pairing": {
       "el": "Ταιριάζει τέλεια με ψητά και μαγειρευτά κρέατα και παλαιωμένα τυριά.",
       "en": "Perfect with roast and braised meat and aged cheeses."
+    },
+    "making": {
+      "el": "Ακολουθεί την αρχαία μέθοδο οινοποίησης Alberello Pugliese. Τα υπερώριμα σταφύλια, που ωριμάζουν στα πρέμνα με τον ήλιο και τους ήπιους θαλασσινούς ανέμους, τρυγιούνται με το χέρι. Το κρασί παλαιώνει σε γαλλικά δρύινα βαρέλια για περίπου 6 μήνες.",
+      "en": "Made following the ancient Alberello Pugliese method. Overripe grapes, ripened on the vine by the sun and mild sea breezes, are picked by hand. The wine then ages in French oak barrels for about 6 months."
     },
     "award": "Luca Maroni · 99 βαθμοί",
     "awards": [
@@ -2121,6 +2152,10 @@ export const WINES: Wine[] = [
       "el": "Τέλειο ως απεριτίφ, συνδυάζεται με εξωτικά φρούτα και πιάτα με ψάρι.",
       "en": "Perfect as an aperitif; pairs with exotic fruit and fish dishes."
     },
+    "making": {
+      "el": "Αποκλειστικά από σταφύλια Primitivo. Μετά την αφαίρεση του στελέχους, οι φλούδες μένουν σε επαφή με τον μούστο για περίπου 2 ώρες και ακολουθεί απαλή πίεση για το χαρακτηριστικό ροζ χρώμα. Η αλκοολική ζύμωση διαρκεί 10 ημέρες σε ελεγχόμενη θερμοκρασία περίπου 15°C.",
+      "en": "Made entirely from Primitivo. After destemming, the skins steep for about 2 hours before a gentle pressing gives the typical pink colour. Alcoholic fermentation then runs for 10 days at a controlled temperature of about 15°C."
+    },
     "award": "Luca Maroni · 97 βαθμοί",
     "awards": [
       {
@@ -2153,7 +2188,7 @@ export const WINES: Wine[] = [
   {
     "slug": "ma-primitivo-bio",
     "short": "Primitivo Single Estate BIO",
-    "name": "Masso Antico Primitivo Single Estate BIO",
+    "name": "Masso Antico Primitivo Salento IGT Single Estate BIO",
     "maker": "Masso Antico",
     "type": "red",
     "organic": true,
@@ -2161,13 +2196,15 @@ export const WINES: Wine[] = [
       "el": "Απουλία",
       "en": "Apulia"
     },
-    "appellation": "BIO",
+    "appellation": "IGT · BIO",
     "grapes": "Primitivo",
-    "abv": "",
-    "serve": "",
+    "abv": "14%",
+    "serve": "16–18°C",
     "body": 0,
     "pairings": [
-      "meat"
+      "red",
+      "meat",
+      "cheese"
     ],
     "notes": {
       "el": "Δαμάσκηνο, ώριμο κεράσι",
@@ -2204,8 +2241,8 @@ export const WINES: Wine[] = [
     },
     "appellation": "",
     "grapes": "Primitivo",
-    "abv": "0%",
-    "serve": "",
+    "abv": "0,0%",
+    "serve": "16–18°C",
     "body": 0,
     "pairings": [
       "red",
@@ -2228,6 +2265,10 @@ export const WINES: Wine[] = [
       "el": "Συνοδεύει ψητά κρέατα, ζυμαρικά με σάλτσα ντομάτας και παλαιωμένα τυριά.",
       "en": "Pairs with grilled meat, pasta with tomato sauce and aged cheeses."
     },
+    "making": {
+      "el": "Ερυθρή οινοποίηση σταφυλιών Primitivo της Απουλίας, με εκχύλιση των φλοιών για 10 ημέρες κατά την αλκοολική και τη μηλογαλακτική ζύμωση. Μετά τη σταθεροποίηση, το αλκοόλ αφαιρείται με τεχνολογία μεμβρανών, που διατηρεί τη δομή και τα αρώματα· το νερό επανενσωματώνεται στο κρασί.",
+      "en": "Primitivo grapes from Apulia are vinified as a red wine, with 10 days of skin contact during alcoholic and malolactic fermentation. After stabilisation, the alcohol is removed with membrane technology, which preserves structure and aromas; the water is returned to the wine."
+    },
     "awards": []
   },
   {
@@ -2243,11 +2284,12 @@ export const WINES: Wine[] = [
     },
     "appellation": "",
     "grapes": "Fiano",
-    "abv": "0%",
-    "serve": "",
+    "abv": "0,0%",
+    "serve": "10–12°C",
     "body": 0,
     "pairings": [
-      "fish"
+      "fish",
+      "white"
     ],
     "notes": {
       "el": "Τριαντάφυλλο, άνθη πορτοκαλιάς",
@@ -2283,8 +2325,8 @@ export const WINES: Wine[] = [
     },
     "appellation": "IGT",
     "grapes": "Negroamaro",
-    "abv": "",
-    "serve": "",
+    "abv": "14,5%",
+    "serve": "16–18°C",
     "body": 5,
     "pairings": [
       "red"
@@ -2305,13 +2347,17 @@ export const WINES: Wine[] = [
       "el": "Συνδυάζεται τέλεια με ψητό αρνί, κεφτεδάκια σε σάλτσα και κόκκινο κρέας.",
       "en": "Pairs perfectly with roast lamb, meatballs in sauce and red meat."
     },
+    "making": {
+      "el": "Τα σταφύλια, από καλλιέργεια Guyot, αφήνονται να στεγνώσουν ελαφρώς στο πρέμνο και τρυγιούνται αποκλειστικά με το χέρι στα τέλη Σεπτεμβρίου. Μετά την επιλογή και την αποβοστρύχωση, ζυμώνονται για περίπου 20 ημέρες σε ανοξείδωτες δεξαμενές στους 24–28°C. Μέρος του κρασιού παλαιώνει για σύντομο διάστημα σε γαλλικά δρύινα βαρέλια (tonneaux), που του δίνουν διακριτικές νότες βανίλιας.",
+      "en": "Guyot-trained grapes are left to dry slightly on the vine and picked by hand at the end of September. After careful selection and destemming, they ferment for about 20 days in stainless-steel tanks at 24–28°C. Part of the wine then spends a short time in French oak tonneaux, adding subtle vanilla notes."
+    },
     "awards": []
   },
   {
     "slug": "moscato-spumante",
     "short": "Moscato Spumante",
     "name": "Moscato Spumante Dolce",
-    "maker": "Cavatina",
+    "maker": "Rivani",
     "type": "sparkling",
     "region": {
       "el": "Τριβενέτο",
@@ -2348,13 +2394,13 @@ export const WINES: Wine[] = [
     "maker": "Cavatina",
     "type": "sparkling",
     "region": {
-      "el": "",
-      "en": ""
+      "el": "Τριβενέτο",
+      "en": "Triveneto"
     },
     "appellation": "",
     "grapes": "Moscato",
-    "abv": "",
-    "serve": "",
+    "abv": "7%",
+    "serve": "8–10°C",
     "body": 0,
     "pairings": [],
     "notes": {
@@ -2366,12 +2412,16 @@ export const WINES: Wine[] = [
       "en": "Fruit, desserts"
     },
     "profile": {
-      "el": "Απαλό ροζ, διαυγές και λαμπερό, με ζωηρό perlage. Αρώματα κερασιού και φρέσκων φρούτων· γλυκιά, δροσερή γεύση με επίμονη επίγευση.",
-      "en": "Soft, clear, bright pink with a lively perlage. Aromas of cherry and fresh fruit; sweet and fresh on the palate with a persistent finish."
+      "el": "Απαλό ροζ χρώμα, διαυγές και λαμπερό, με ζωηρό perlage καλής διάρκειας. Ευχάριστα αρώματα κερασιού και φρέσκων φρούτων· γεύση γλυκιά και δροσερή, με καλή ένταση και επίμονη επίγευση.",
+      "en": "Soft, clear, bright pink with a lively, lasting perlage. Pleasant aromas of cherry and fresh fruit; sweet and fresh on the palate, with good intensity and a persistent finish."
     },
     "pairing": {
       "el": "Εξαιρετικό με φρούτα και επιδόρπια.",
       "en": "Excellent with fruit and desserts."
+    },
+    "making": {
+      "el": "Τα σταφύλια πιέζονται απαλά και ο μούστος αποθηκεύεται σε ελεγχόμενη θερμοκρασία 0°C. Η ζύμωση γίνεται σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία και ακολουθεί δεύτερη ζύμωση με τη μέθοδο Charmat.",
+      "en": "The grapes are gently pressed and the must is stored at a controlled 0°C. Fermentation takes place in temperature-controlled stainless-steel tanks, followed by a second fermentation using the Charmat method."
     },
     "awards": []
   },
@@ -2953,6 +3003,255 @@ export const WINES: Wine[] = [
     "making": {
       "el": "Τα σταφύλια πιέζονται απαλά και το γλεύκος οινοποιείται ως λευκό σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία 16–18°C. Ακολουθεί ωρίμαση και σταθεροποίηση πριν από την εμφιάλωση σε χαμηλή θερμοκρασία.",
       "en": "The grapes are gently pressed and the must is vinified as a white wine in stainless steel at a controlled 16–18°C, then aged and stabilised before cold bottling."
+    },
+    "awards": []
+  },
+  {
+    "slug": "ld-prugnanello",
+    "short": "Prugnanello",
+    "name": "Lunadoro Prugnanello Rosso di Montepulciano DOC",
+    "maker": "Lunadoro",
+    "type": "red",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "DOC",
+    "grapes": "Sangiovese",
+    "abv": "14%",
+    "serve": "16–18°C",
+    "body": 0,
+    "pairings": [
+      "aperitif",
+      "red"
+    ],
+    "notes": {
+      "el": "Βιολέτα, εσπεριδοειδή, χαρούπι, γαρίφαλο",
+      "en": "Violet, citrus, carob, clove"
+    },
+    "pairsShort": {
+      "el": "Ψωμί και αλλαντικά, κυρίως πιάτα, ψητά κρέατα",
+      "en": "Bread and cold cuts, main courses, grilled meat"
+    },
+    "profile": {
+      "el": "Βαθύ ρουμπινί κόκκινο με ανταύγειες γρανάτη. Από Sangiovese του κλώνου Prugnolo Gentile, με κομψό μπουκέτο από βιολέτα και εσπεριδοειδή, χαρούπι και ελαφρώς πικάντικες νότες γαρίφαλου. Αρμονικό και φρουτώδες στο στόμα, με ευχάριστη, δροσερή επίγευση.",
+      "en": "Dark ruby red with garnet hints. Made from the Sangiovese clone known as Prugnolo Gentile, with an elegant bouquet of violet and citrus, carob and lightly spicy notes of clove. Harmonious and fruity on the palate, with a pleasant, fresh finish."
+    },
+    "pairing": {
+      "el": "Εξαιρετικό με ψωμί και αλλαντικά, ιδανικό με κυρίως πιάτα και ψητά κρέατα.",
+      "en": "Excellent with bread and cold cuts, ideal with main courses and grilled meat."
+    },
+    "making": {
+      "el": "Τρύγος με το χέρι μέσα στο πρώτο δεκαήμερο του Οκτωβρίου και διαλογή των ραγών σε τραπέζια επιλογής. Οινοποίηση σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία και παλαίωση σε γαλλικά barriques και tonneaux (30 και 20 hl) για τουλάχιστον 12 μήνες.",
+      "en": "Hand-picked within the first ten days of October, with the berries selected on sorting tables. Vinified at controlled temperature in stainless steel, then aged in French barriques and tonneaux (30 and 20 hl) for at least 12 months."
+    },
+    "awards": []
+  },
+  {
+    "slug": "ld-pagliareto",
+    "short": "Pagliareto",
+    "name": "Lunadoro Pagliareto Vino Nobile di Montepulciano DOCG",
+    "maker": "Lunadoro",
+    "type": "red",
+    "organic": true,
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "DOCG · BIO",
+    "grapes": "Sangiovese",
+    "abv": "14%",
+    "serve": "16–18°C",
+    "body": 0,
+    "pairings": [
+      "red"
+    ],
+    "notes": {
+      "el": "Ώριμα φρούτα, μαρμελάδα δαμάσκηνου, βιολέτα, σοκολάτα",
+      "en": "Ripe fruit, plum jam, violet, chocolate"
+    },
+    "pairsShort": {
+      "el": "Κόκκινα και μαγειρευτά κρέατα, σούπες, μανιτάρια",
+      "en": "Red and braised meat, soups, mushrooms"
+    },
+    "profile": {
+      "el": "Βαθύ ρουμπινί κόκκινο με έντονες ανταύγειες γρανάτη. Σύνθετο, χαρακτηριστικό μπουκέτο με ώριμα φρούτα και πιπέρι, μαρμελάδα δαμάσκηνου και λουλουδάτες νότες βιολέτας, σοκολάτα και πούρο. Ισορροπημένη γεύση, με γλυκές τανίνες και τη σωστή οξύτητα για μια δυναμική, μακρά επίγευση.",
+      "en": "Dark ruby red with intense garnet hints. A complex, characteristic bouquet of ripe fruit and pepper, plum jam and floral notes of violet, with chocolate and cigar. Balanced, with sweet tannins and the right acidity for a dynamic, long finish."
+    },
+    "pairing": {
+      "el": "Εξαιρετικό με την παραδοσιακή τοσκανική κουζίνα, κυρίως με κόκκινα και μαγειρευτά κρέατα, σούπες και πιάτα με μανιτάρια.",
+      "en": "Excellent with traditional Tuscan cuisine, especially red and braised meats, soups and mushroom dishes."
+    },
+    "making": {
+      "el": "Τρύγος με το χέρι μέσα στο πρώτο δεκαήμερο του Οκτωβρίου και οινοποίηση σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία· ακολουθεί παλαίωση σε γαλλικά δρύινα tonneaux (20 και 30 hl) για τουλάχιστον 24 μήνες.",
+      "en": "Hand-picked within the first ten days of October and vinified in temperature-controlled stainless steel, then aged in French oak tonneaux (20 and 30 hl) for at least 24 months."
+    },
+    "awards": []
+  },
+  {
+    "slug": "ld-gran-pagliareto",
+    "short": "Gran Pagliareto",
+    "name": "Lunadoro Gran Pagliareto Vino Nobile di Montepulciano DOCG",
+    "maker": "Lunadoro",
+    "type": "red",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "DOCG",
+    "grapes": {
+      "el": "Sangiovese (αμπελώνας Pagliareto)",
+      "en": "Sangiovese (Pagliareto vineyard)"
+    },
+    "abv": "14,5%",
+    "serve": "16–18°C",
+    "body": 0,
+    "pairings": [
+      "red",
+      "cheese"
+    ],
+    "notes": {
+      "el": "Κίτρινο ροδάκινο, βατόμουρο, δαμάσκηνο, μαύρο πιπέρι",
+      "en": "Yellow peach, blackberry, plum, black pepper"
+    },
+    "pairsShort": {
+      "el": "Τοσκανική κουζίνα, ψητά κρέατα, παλαιωμένα τυριά",
+      "en": "Tuscan cuisine, grilled meat, aged cheeses"
+    },
+    "profile": {
+      "el": "Ρουμπινί κόκκινο με ανταύγειες γρανάτη. Έντονα αρώματα κίτρινου ροδάκινου, βατόμουρου και δαμάσκηνου, με βαλσαμικές νότες και μαύρο πιπέρι. Ζεστό και τυλιχτικό, με βελούδινες τανίνες, ισορροπία γλυκού και όξινου και δροσερό τελείωμα μέντας· καθαρή, μακρά επίγευση με φουντούκι, πικρό κακάο και γλυκόριζα, ενισχυμένη από διακριτικές νότες δρυός.",
+      "en": "Ruby red with garnet hints. Intense notes of yellow peach, blackberry and plum, with balsamic hints and black pepper. Warm and enveloping, with velvety tannins, a sweet-and-sour balance and a mentholated finish; clean and long, with hazelnut, bitter cocoa and licorice lifted by delicate oak."
+    },
+    "pairing": {
+      "el": "Εξαιρετικό με την παραδοσιακή τοσκανική κουζίνα, ψητά κρέατα και παλαιωμένα τυριά.",
+      "en": "Excellent with traditional Tuscan cuisine, grilled meat dishes and aged cheeses."
+    },
+    "making": {
+      "el": "Τρύγος με το χέρι μέσα στο πρώτο δεκαήμερο του Οκτωβρίου και οινοποίηση σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία. Ακολουθεί παλαίωση τουλάχιστον 12 μηνών σε καινούργια γαλλικά δρύινα tonneaux, 18 μηνών σε μεγάλα βαρέλια και 12 μηνών στη φιάλη, ώστε να εναρμονιστεί και να εκλεπτυνθεί το μπουκέτο.",
+      "en": "Hand-picked within the first ten days of October and vinified at controlled temperature in stainless steel. The wine then ages for at least 12 months in new French oak tonneaux and 18 months in large barrels, followed by 12 months in bottle to harmonise and refine its bouquet."
+    },
+    "awards": []
+  },
+  {
+    "slug": "ld-quercione",
+    "short": "Quercione Riserva",
+    "name": "Lunadoro Quercione Vino Nobile di Montepulciano DOCG Riserva",
+    "maker": "Lunadoro",
+    "type": "red",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "DOCG",
+    "grapes": "Sangiovese",
+    "abv": "14,5%",
+    "serve": "16–18°C",
+    "body": 0,
+    "pairings": [
+      "red",
+      "cheese"
+    ],
+    "notes": {
+      "el": "Μύρτιλο, νότες δασικού εδάφους",
+      "en": "Blueberry, undergrowth"
+    },
+    "pairsShort": {
+      "el": "Pappardelle με αγριόχοιρο, κόκκινο κρέας, ώριμα τυριά",
+      "en": "Pappardelle with wild boar, red meat, mature cheese"
+    },
+    "profile": {
+      "el": "Ένα κρασί που ενώνει την παράδοση με τη νεωτερικότητα, την κομψότητα με την ένταση, από περιορισμένη παραγωγή. Φρουτώδη αρώματα μύρτιλου και ευχάριστες νότες δασικού εδάφους. Κομψό και βαθύ, αρμονικό, με στρογγυλές, εκλεπτυσμένες τανίνες και επίγευση που ξεχωρίζει για τη διάρκεια και την έντασή της.",
+      "en": "A wine that bonds tradition and modernity, elegance and intensity, from a limited production. Fruity aromas of blueberry and pleasant notes of undergrowth. Elegant and deep, harmonious, with round, refined tannins and a finish that stands out for its persistence and intensity."
+    },
+    "pairing": {
+      "el": "Εξαιρετικό με πλούσια κυρίως πιάτα, όπως pappardelle με σάλτσα αγριόχοιρου, κόκκινο κρέας και ώριμα τυριά. Τέλειο με fiorentina.",
+      "en": "Excellent with rich main courses such as pappardelle with wild boar sauce, red meat and mature cheese. Perfect with fiorentina."
+    },
+    "making": {
+      "el": "Τρύγος με το χέρι μέσα στο πρώτο δεκαήμερο του Οκτωβρίου και οινοποίηση σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία. Ακολουθεί παλαίωση σε γαλλικά δρύινα βαρέλια (20 και 30 hl) για τουλάχιστον 24 μήνες και στη συνέχεια 12 μήνες στη φιάλη.",
+      "en": "Hand-picked within the first ten days of October and vinified at controlled temperature in stainless steel. The wine then ages in French oak barrels (20 and 30 hl) for at least 24 months, followed by 12 months in bottle."
+    },
+    "awards": []
+  },
+  {
+    "slug": "ld-doppio-lustro",
+    "short": "Doppio Lustro",
+    "name": "Lunadoro Doppio Lustro Rosso Toscana IGT",
+    "maker": "Lunadoro",
+    "type": "red",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "IGT",
+    "grapes": "Merlot, Sangiovese",
+    "abv": "14,5%",
+    "serve": "16–18°C",
+    "body": 0,
+    "pairings": [
+      "red"
+    ],
+    "notes": {
+      "el": "Μαρμελάδα δαμάσκηνου, μέντα, γλυκόριζα",
+      "en": "Plum jam, menthol, licorice"
+    },
+    "pairsShort": {
+      "el": "Pici με ραγού αγριόχοιρου, ψητά κρέατα, cantucci",
+      "en": "Pici with wild boar ragù, grilled meat, cantucci"
+    },
+    "profile": {
+      "el": "Βαθύ κόκκινο χρώμα με ανταύγειες γρανάτη. Στη μύτη μαρμελάδα δαμάσκηνου με κομψές βαλσαμικές νότες μέντας και γλυκόριζας. Στο στόμα απαλό αλλά γεμάτο, με βελούδινες τανίνες και επίμονη επιστροφή των φρουτωδών νοτών.",
+      "en": "Deep red with garnet reflections. On the nose, plum jam with elegant balsamic hints of menthol and licorice. Smooth yet full-bodied on the palate, with velvety tannins and a lingering return of fruit."
+    },
+    "pairing": {
+      "el": "Ιδανικό με πιάτα με ελαφριά σάλτσα, όπως pici με λευκό ραγού αγριόχοιρου. Εξαιρετικό και με ψητά κρέατα και, στο τέλος του γεύματος, με τα παραδοσιακά μπισκότα cantucci.",
+      "en": "Perfect with lightly sauced dishes, such as pici with white wild boar ragù. Also excellent with grilled meats and, to finish the meal, with traditional cantucci biscuits."
+    },
+    "making": {
+      "el": "Τα σταφύλια από τον αμπελώνα Quercione αφήνονται να υπερωριμάσουν στο κλήμα (surmaturazione), πέρα από τον συνηθισμένο χρόνο τρύγου, ώστε να συμπυκνωθούν τα σάκχαρα και τα αρώματα. Η ζύμωση και η παλαίωση γίνονται σε barriques από γαλλική δρυ για 36 μήνες, δίνοντας ένα κρασί με μεγάλη δομή, κομψό και ταυτόχρονα απαλό.",
+      "en": "Grapes from the Quercione vineyard are left to over-ripen on the vine (surmaturazione) beyond the usual harvest time, concentrating sugars and aromas. Fermentation and ageing take place in French oak barriques for 36 months, giving a wine of great structure, elegant and smooth."
+    },
+    "awards": []
+  },
+  {
+    "slug": "ld-prugnanello-rose",
+    "short": "Prugnanello Rosé",
+    "name": "Lunadoro Prugnanello Sangiovese Rosé Toscana IGT",
+    "maker": "Lunadoro",
+    "type": "rose",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "IGT",
+    "grapes": "Sangiovese",
+    "abv": "12%",
+    "serve": "8–10°C",
+    "body": 0,
+    "pairings": [
+      "aperitif",
+      "fish",
+      "white"
+    ],
+    "notes": {
+      "el": "Εσπεριδοειδή, νεκταρίνι, παιώνια, τριαντάφυλλο",
+      "en": "Citrus, nectarine, peony, rose"
+    },
+    "pairsShort": {
+      "el": "Ορεκτικά, ψαρόσουπες, ριζότο θαλασσινών, λευκό κρέας",
+      "en": "Starters, fish soups, seafood risotto, white meat"
+    },
+    "profile": {
+      "el": "Όμορφο, ντελικάτο ροζ χρώμα. Σύνθετο μπουκέτο με εσπεριδοειδή, νεκταρίνι και λεπτές λουλουδάτες νότες παιώνιας και τριαντάφυλλου. Στο στόμα ευχάριστη φρεσκάδα και αξιοσημείωτη αλμυράδα.",
+      "en": "A beautiful, delicate pink. A complex bouquet of citrus and nectarine with delicate floral hints of peony and rose. Pleasantly fresh on the palate, with notable savouriness."
+    },
+    "pairing": {
+      "el": "Ορεκτικά και ψαρόσουπες, πλούσια αλλά λεπτά πιάτα όπως ριζότο θαλασσινών, καθώς και κρέατα, από αλλαντικά έως πιο ελαφριές επιλογές όπως κοτόπουλο και γαλοπούλα.",
+      "en": "Starters and fish soups, rich yet delicate dishes such as seafood risotto, and meats from cured meats to lighter options such as chicken and turkey."
+    },
+    "making": {
+      "el": "Sangiovese από αμπελώνες της Τοσκάνης, με τρύγο με το χέρι στις αρχές Σεπτεμβρίου και απαλή πίεση· ο μούστος μένει σε επαφή με τις φλούδες για περίπου 8 ώρες για να αποκτήσει χρώμα και άρωμα και ζυμώνεται με επιλεγμένες ζύμες στους 16–18°C περίπου.",
+      "en": "Tuscan Sangiovese is hand-picked in early September and gently pressed; the must stays on the skins for about 8 hours to develop colour and aroma, then ferments with selected yeasts at around 16–18°C."
     },
     "awards": []
   }

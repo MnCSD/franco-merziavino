@@ -7,12 +7,13 @@ import { sendEnquiry } from '@/app/actions/contact';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import type { Locale, LocalizedWine } from '@/types/wine';
 import { MaskHeading, Reveal } from '@/components/ui/Reveal';
+import { PartnerLogos } from '@/components/ui/PartnerLogos';
 import type { ContactState, EnquiryKind } from './types';
 import styles from './ContactSection.module.css';
 
 const KINDS: EnquiryKind[] = ['wholesale', 'catalog', 'gifts', 'other'];
 const PHONE = { label: '6972 805 605', href: 'tel:+306972805605' };
-const EMAIL = 'katsiroubas.e@gmail.com';
+const EMAIL = 'francomerziavino@gmail.com';
 const INSTAGRAM = { label: '@francomerziavino', href: 'https://www.instagram.com/francomerziavino/' };
 const MAPS = 'https://www.google.com/maps/search/?api=1&query=Αργοναυτών+24+Ζωγράφου+15772';
 /** Optional fields that pour wine into the progress glass (name and contact are required too). */
@@ -102,6 +103,7 @@ export function ContactSection({ locale, wines }: { locale: Locale; wines: Local
             <Reveal className={styles.person}>
               <strong>{c.person}</strong>
               <span>{c.role}</span>
+              <PartnerLogos height={48} className={styles.partners} />
             </Reveal>
           </div>
           <div className={styles.rows}>
@@ -191,6 +193,7 @@ export function ContactSection({ locale, wines }: { locale: Locale; wines: Local
                 <span className={styles.label}>{c.message}</span>
                 <textarea className={`${styles.input} ${styles.area}`} name="message" placeholder={c.messagePlaceholder} rows={3} />
               </label>
+              {state.status === 'failed' && <p className={styles.err} role="alert">{c.errSend}</p>}
               <div className={styles.sendRow}>
                 <button type="submit" className={styles.send} disabled={pending}>{pending ? c.sending : c.send}<ArrowRight size={20} strokeWidth={1.75} /></button>
                 <div className={styles.pour}>

@@ -8,14 +8,15 @@ describe('geo utilities', () => {
       expect(GEO_IDS).toContain('Trentino');
       expect(GEO_IDS).toContain('Veneto');
       expect(GEO_IDS).toContain('Friuli');
+      expect(GEO_IDS).toContain('Toscana');
       expect(GEO_IDS).toContain('Abruzzo');
       expect(GEO_IDS).toContain('Campania');
       expect(GEO_IDS).toContain('Puglia');
       expect(GEO_IDS).toContain('Sicilia');
     });
 
-    it('has 8 regions', () => {
-      expect(GEO_IDS.length).toBe(8);
+    it('has 9 regions', () => {
+      expect(GEO_IDS.length).toBe(9);
     });
   });
 
@@ -53,6 +54,7 @@ describe('geo utilities', () => {
       expect(geoOf('Πιεμόντε')).toEqual(['Piemonte']);
       expect(geoOf('Βένετο')).toEqual(['Veneto']);
       expect(geoOf('Σικελία')).toEqual(['Sicilia']);
+      expect(geoOf('Τοσκάνη')).toEqual(['Toscana']);
     });
 
     it('handles multi-region mappings', () => {

@@ -1,4 +1,5 @@
 import { WINES } from '@/data/wines';
+import { WINERIES } from '@/data/wineries';
 import { BESTSELLER_SLUGS } from '@/data/bestsellers';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import { toneFor } from '@/lib/tones';
@@ -27,7 +28,7 @@ export function localize(locale: Locale): LocalizedWine[] {
     region: w.region[locale],
     // Organic is already in typeLabel; drop the BIO the data sheets put in the appellation.
     appellation: w.organic ? w.appellation.replace(/\s*·?\s*BIO$/, '') : w.appellation,
-    grapes: w.grapes,
+    grapes: typeof w.grapes === 'object' ? w.grapes[locale] : w.grapes,
     abv: w.abv,
     serve: w.serve,
     body: w.body,
@@ -60,7 +61,20 @@ export function findWine(locale: Locale, slug: string) {
 }
 
 export const slugs = () => WINES.map((w) => w.slug);
-export const makers = () => [...new Set(WINES.map((w) => w.maker))].sort((a, b) => a.localeCompare(b));
+/** Makers with at least one wine, in WINERIES display order. */
+export const makers = () => WINERIES.map((w) => w.name).filter((n) => WINES.some((w) => w.maker === n));
+
+/** Sparkling wines whose name or colour (first sentence of the profile) says rosé. */
+const ROSE_SPARKLING = new Set(
+  WINES.filter((w) => w.type === 'sparkling' && /\bros(e\b|é)|rosato|pink/i.test(`${w.name} ${w.profile.en.split('.')[0]}`)).map((w) => w.slug),
+);
+
+/** Order inside a winery: red, white, rosé, then 0% alcohol. Sparkling wines go with their colour. */
+export const typeRank = (w: Pick<LocalizedWine, 'slug' | 'type' | 'alcoholFree'>) =>
+  w.alcoholFree ? 3 : w.type === 'red' ? 0 : w.type === 'rose' || ROSE_SPARKLING.has(w.slug) ? 2 : 1;
+
+export const byTypeRank = <T extends Pick<LocalizedWine, 'slug' | 'type' | 'alcoholFree'>>(list: T[]) =>
+  [...list].sort((a, b) => typeRank(a) - typeRank(b));
 
 export type TypeFilter = WineType | 'all' | 'alcoholFree' | 'premium';
 

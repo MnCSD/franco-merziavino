@@ -8,7 +8,7 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 import type { Locale } from '@/types/wine';
 import styles from './Gifts.module.css';
 
-const GIFTS = ['g16', 'g12', 'g02', 'g05', 'g15', 'g09', 'g11', 'g14', 'g01', 'g07', 'g03', 'g04', 'g06', 'g08', 'g10', 'g13'].map((n) => `/images/gifts/${n}.jpg`);
+const GIFTS = ['g16', 'g12', 'g02-v2', 'g05', 'g15-v2', 'g11', 'g14-v2', 'g01', 'g07-v2', 'g03-v2', 'g04-v2', 'g06-v2', 'g08', 'g13'].map((n) => `/images/gifts/${n}.jpg`);
 /** The two drifting photo columns, and the photo that grows behind each service card. */
 const COL_A = GIFTS.filter((_, i) => i % 2 === 0);
 const COL_B = GIFTS.filter((_, i) => i % 2 === 1);

@@ -25,7 +25,7 @@ export function Footer({ locale }: { locale: Locale }) {
       </div>
       <div className={`container ${styles.legal}`}>
         <span>{t.footer.legal}</span>
-        <span>© {new Date().getFullYear()} Franco Merzia Vino</span>
+        <span>© 2021 Franco Merzia Vino</span>
       </div>
     </footer>
   );

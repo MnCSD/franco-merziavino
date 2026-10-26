@@ -22,6 +22,7 @@
 .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 14px; color: var(--color-neutral-700); }
 .title { font-size: clamp(26px, 4.2vh, 40px); letter-spacing: -0.025em; line-height: 1; text-wrap: balance; }
 .maker { margin-top: 6px; font-size: 15px; color: var(--color-neutral-700); }
+.partner { margin-top: 14px; color: var(--color-neutral-700); }
 .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-block: 2px solid var(--color-divider); }
 .facts > div { padding: 10px 10px 10px 0; }
 .facts dd { margin: 4px 0 0; font-size: 15px; font-weight: 600; }

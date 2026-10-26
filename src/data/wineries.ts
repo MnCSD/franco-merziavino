@@ -1,6 +1,6 @@
 import type { Localized } from '@/types/wine';
 
-/** Wineries shown in the "By winery" view, in display order. Only those with at least one wine. */
+/** Wineries shown in the "By winery" view and the winery chips, in display order. Only those with at least one wine. */
 export const WINERIES: { name: string; region: Localized }[] = [
   {
     "name": "Amicale – Cantine di Ora",
@@ -87,17 +87,24 @@ export const WINERIES: { name: string; region: Localized }[] = [
     }
   },
   {
-    "name": "Francesca Mara",
-    "region": {
-      "el": "Βένετο · Αμπρούτσο",
-      "en": "Veneto · Abruzzo"
-    }
-  },
-  {
     "name": "Cavatina",
     "region": {
       "el": "Τριβενέτο",
       "en": "Triveneto"
+    }
+  },
+  {
+    "name": "Lunadoro",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    }
+  },
+  {
+    "name": "Francesca Mara",
+    "region": {
+      "el": "Βένετο · Αμπρούτσο",
+      "en": "Veneto · Abruzzo"
     }
   }
 ];

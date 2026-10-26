@@ -21,7 +21,7 @@ export interface Wine {
   premium?: boolean;
   region: Localized;
   appellation: string;
-  grapes?: string;
+  grapes?: string | Localized;
   abv: string;
   serve: string;
   /** 1–5; 0 when the data sheet gives no body rating. */

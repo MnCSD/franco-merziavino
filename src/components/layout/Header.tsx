@@ -11,11 +11,11 @@ export function navItems(locale: Locale) {
   const t = getDictionary(locale).nav;
   const home = `/${locale}`;
   return [
-    { href: `${home}#collection`, label: t.collection },
+    { href: `${home}#top`, label: t.home },
+    { href: `${home}#about`, label: t.about },
     { href: `${home}#wines`, label: t.find },
     { href: `${home}/wines`, label: t.all },
     { href: `${home}#guide`, label: t.guide },
-    { href: `${home}#wineries`, label: t.wineries },
     { href: `${home}#regions`, label: t.regions },
   ];
 }

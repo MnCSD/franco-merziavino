@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import { IntroCurtain } from '@/components/home/IntroCurtain';
 import { HeroRing } from '@/components/home/HeroRing';
+import { About } from '@/components/home/About';
 import { Collection } from '@/components/home/Collection';
 import { LabelGuide } from '@/components/home/LabelGuide';
-import { Wineries } from '@/components/home/Wineries';
 import { Gifts } from '@/components/home/Gifts';
 import { RegionsMap } from '@/components/home/RegionsMap';
 import { WineFinder } from '@/components/finder/WineFinder';
@@ -23,9 +23,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const feat = featured(lang);
 
   return (
-    <main>
+    <main id="top">
       <IntroCurtain regions={t.intro.regions} est={t.intro.est} />
       <HeroRing wines={bestsellers(lang)} locale={lang} />
+      <About t={t} />
       <Collection wines={feat} locale={lang} />
 
       <section id="wines" className={`container ${styles.finder}`}>
@@ -38,7 +39,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       </section>
 
       <LabelGuide t={t} />
-      <Wineries t={t} />
       <RegionsMap locale={lang} wines={all} />
       <Gifts locale={lang} />
       <Suspense>

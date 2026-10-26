@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState, useTransition } from 'react';
 import { ArrowDown, ArrowLeft, ArrowRight, Search, X } from 'lucide-react';
 import { GEO_NAMES, isGeoId } from '@/lib/geo';
 import { getDictionary } from '@/lib/i18n/dictionaries';
-import { filterWines, filtersToQuery, type TypeFilter, type WineFilters } from '@/lib/wines';
+import { byTypeRank, filterWines, filtersToQuery, type TypeFilter, type WineFilters } from '@/lib/wines';
 import { WINERIES } from '@/data/wineries';
 import type { Locale, LocalizedWine, Occasion } from '@/types/wine';
 import { WineCard } from '@/components/wine/WineCard';
@@ -67,8 +67,12 @@ export function WineFinder({ wines, makers, locale, mode, pageSize = 8 }: Props)
     return () => window.removeEventListener('fmv:region', on);
   });
 
-  const filtered = useMemo(() => filterWines(wines, f), [wines, f]);
-  const list = filtered.slice(0, shown);
+  const filtered = useMemo(() => {
+    const r = filterWines(wines, f);
+    return f.winery === 'all' ? r : byTypeRank(r);
+  }, [wines, f]);
+  // A single winery is short enough to show in full.
+  const list = f.winery === 'all' ? filtered.slice(0, shown) : filtered;
   const hidden = filtered.length - list.length;
   const wineries = WINERIES.filter((w) => wines.some((x) => x.maker === w.name));
   const showTiles = !isCatalogue && view === 'winery' && f.winery === 'all';
@@ -94,7 +98,7 @@ export function WineFinder({ wines, makers, locale, mode, pageSize = 8 }: Props)
       {showTiles ? (
         <div className={styles.tiles}>
           {wineries.map((w, i) => {
-            const ws = wines.filter((x) => x.maker === w.name);
+            const ws = byTypeRank(wines.filter((x) => x.maker === w.name));
             return (
               <button key={w.name} type="button" className={styles.tile} onClick={() => update({ winery: w.name })}>
                 <div className={styles.tileTop}><span>{String(i + 1).padStart(2, '0')}</span><span>{t.finder.labels(ws.length)}</span></div>
@@ -102,7 +106,7 @@ export function WineFinder({ wines, makers, locale, mode, pageSize = 8 }: Props)
                 <div className={styles.tileRegion}>{w.region[locale]}</div>
                 <div className={styles.thumbs}>
                   {/* eslint-disable-next-line @next/next/no-img-element -- natural aspect at a fixed height */}
-                  {ws.slice(0, 5).map((x, k) => <img key={x.slug} src={x.image} alt="" loading="lazy" style={{ height: `${100 - k * 6}%` }} />)}
+                  {ws.slice(0, 5).map((x) => <img key={x.slug} src={x.image} alt="" loading="lazy" />)}
                 </div>
                 <div className={styles.tileMore}>{t.finder.seeLabels}<ArrowRight size={18} /></div>
               </button>

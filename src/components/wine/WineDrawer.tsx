@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ArrowRight, ArrowUpRight, Award, X } from 'lucide-react';
 import { getDictionary } from '@/lib/i18n/dictionaries';
+import { PartnerBadge } from '@/components/ui/PartnerLogos';
 import type { Locale, LocalizedWine } from '@/types/wine';
 import { BodyMeter } from './BodyMeter';
 import { WineHeroFx } from './WineHeroFx';
@@ -54,6 +55,7 @@ export function WineDrawer({ locale, wine, onClose }: Props) {
                 <div className={styles.meta}><span className="tag">{w.typeLabel}</span><span>{[w.appellation, w.region].filter(Boolean).join(' · ')}</span></div>
                 <h3 className={styles.title}>{w.name}</h3>
                 <div className={styles.maker}>{w.maker}{w.grapes ? ` · ${w.grapes}` : ''}</div>
+                <PartnerBadge maker={w.maker} label={t.wine.range} height={36} className={styles.partner} />
               </div>
               <button type="button" className="btn btn-secondary btn-icon" onClick={onClose} aria-label={t.nav.close}><X size={20} /></button>
             </div>
