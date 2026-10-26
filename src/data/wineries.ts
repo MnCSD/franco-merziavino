@@ -101,6 +101,20 @@ export const WINERIES: { name: string; region: Localized }[] = [
     }
   },
   {
+    "name": "Castello di Querceto",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    }
+  },
+  {
+    "name": "Tenute Poggiocaro",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    }
+  },
+  {
     "name": "Francesca Mara",
     "region": {
       "el": "Βένετο · Αμπρούτσο",

@@ -3254,5 +3254,209 @@ export const WINES: Wine[] = [
       "en": "Tuscan Sangiovese is hand-picked in early September and gently pressed; the must stays on the skins for about 8 hours to develop colour and aroma, then ferments with selected yeasts at around 16–18°C."
     },
     "awards": []
+  },
+  {
+    "slug": "cq-chianti-classico",
+    "short": "Chianti Classico",
+    "name": "I Colombi Chianti Classico DOCG",
+    "maker": "Castello di Querceto",
+    "type": "red",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "DOCG",
+    "grapes": "Sangiovese, Canaiolo",
+    "abv": "13%",
+    "serve": "18–20°C",
+    "body": 0,
+    "pairings": [
+      "red"
+    ],
+    "notes": {
+      "el": "Βιολέτα, ίριδα, κόκκινα φρούτα",
+      "en": "Violet, iris, red fruit"
+    },
+    "pairsShort": {
+      "el": "Ψητά κρέατα στον φούρνο και στη σχάρα",
+      "en": "Roast and grilled meat"
+    },
+    "profile": {
+      "el": "Λαμπερό ρουμπινί χρώμα. Έντονο, οινώδες μπουκέτο με νότες βιολέτας και ίριδας μαζί με κόκκινα φρούτα. Ισορροπημένη γεύση, στρογγυλή και φρουτώδης.",
+      "en": "Bright ruby red. An intense, vinous bouquet with notes of violet and iris alongside red fruit. Balanced, round and fruity on the palate."
+    },
+    "pairing": {
+      "el": "Ιδανικό με ψητά κρέατα στον φούρνο και στη σχάρα.",
+      "en": "Perfect with roast and grilled meat."
+    },
+    "making": {
+      "el": "Τα σταφύλια παραμένουν σε επαφή με τις φλούδες για περίπου 15 ημέρες σε ελεγχόμενη θερμοκρασία 28–30°C, ώστε να εκχυλιστούν οι τανίνες πριν διαχωριστεί το υγρό από τα στερεά. Η μηλογαλακτική ζύμωση ακολουθεί φυσικά την αλκοολική, σε ανοξείδωτες δεξαμενές.",
+      "en": "The grapes macerate on their skins for about 15 days at a controlled 28–30°C, drawing out the tannins before the liquid is separated from the solids. Malolactic fermentation then follows the alcoholic fermentation naturally, in stainless steel tanks."
+    },
+    "awards": []
+  },
+  {
+    "slug": "cq-chianti-riserva",
+    "short": "Chianti Classico Riserva",
+    "name": "I Colombi Chianti Classico DOCG Riserva",
+    "maker": "Castello di Querceto",
+    "type": "red",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "DOCG",
+    "grapes": "Sangiovese, Canaiolo",
+    "abv": "13,5%",
+    "serve": "18–20°C",
+    "body": 0,
+    "pairings": [
+      "red",
+      "cheese"
+    ],
+    "notes": {
+      "el": "Μπαχαρικά, άγρια μούρα",
+      "en": "Spices, wild berries"
+    },
+    "pairsShort": {
+      "el": "Κόκκινο κρέας, αλμυρά τυριά",
+      "en": "Red meat, savoury cheeses"
+    },
+    "profile": {
+      "el": "Κόκκινο χρώμα με ανταύγειες γρανάτη και αρώματα μπαχαρικών και άγριων μούρων. Βελούδινο, ισορροπημένο μπουκέτο· ξηρό στο στόμα, με κομψή τανική νότα.",
+      "en": "Red with garnet hints and scents of spice and wild berries. A velvety, balanced bouquet; dry on the palate, with an elegant tannic note."
+    },
+    "pairing": {
+      "el": "Ιδανικό με κόκκινο κρέας και αλμυρά τυριά ή απλώς σκέτο.",
+      "en": "Perfect with red meat and savoury cheeses, or simply on its own."
+    },
+    "making": {
+      "el": "Τα καλύτερα σταφύλια του τρύγου επιλέγονται για τη Riserva· η μηλογαλακτική ζύμωση και η επαφή με το ξύλο κατά την εκχύλιση αναδεικνύουν την ποιότητά τους. Το κρασί παλαιώνει σε δρύινα βαρέλια για διάστημα που εξαρτάται από το μέγεθος των barriques, παραμένει στη συνέχεια σε ανοξείδωτες δεξαμενές και τέλος ωριμάζει στη φιάλη πριν κυκλοφορήσει.",
+      "en": "The best grapes of the harvest are set aside for the Riserva; malolactic fermentation and contact with wood during maceration lift their quality. The wine ages in oak for a period that depends on the size of the barriques, then rests in stainless steel and finally refines in bottle before release."
+    },
+    "awards": []
+  },
+  {
+    "slug": "cq-gran-selezione",
+    "short": "Gran Selezione",
+    "name": "I Colombi Chianti Classico DOCG Gran Selezione",
+    "maker": "Castello di Querceto",
+    "type": "red",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "DOCG",
+    "grapes": "Sangiovese, Colorino",
+    "abv": "13,5%",
+    "serve": "18–20°C",
+    "body": 0,
+    "pairings": [
+      "red",
+      "cheese"
+    ],
+    "notes": {
+      "el": "Λουλούδια, σοκολάτα, βότανα",
+      "en": "Flowers, chocolate, herbs"
+    },
+    "pairsShort": {
+      "el": "Ψητά κρέατα, τρούφα, μαγειρευτά, παλαιωμένα τυριά",
+      "en": "Grilled meat, truffle, stews, aged cheese"
+    },
+    "profile": {
+      "el": "Έντονο κόκκινο χρώμα, με αρώματα λουλουδιών και σοκολάτας και νότες βοτάνων. Αξιοσημείωτο σώμα, με μακρά, επίμονη επίγευση.",
+      "en": "Intense red, with floral and chocolate aromas and herbal notes. Remarkable body, with a long, persistent finish."
+    },
+    "pairing": {
+      "el": "Ψητά κρέατα, πιάτα με τρούφα, μαγειρευτά και παλαιωμένα τυριά.",
+      "en": "Grilled meats, truffle dishes, stews and aged cheeses."
+    },
+    "making": {
+      "el": "Παλαίωση τουλάχιστον 30 μηνών σε ξύλο και ωρίμανση τουλάχιστον 3 μηνών στη φιάλη.",
+      "en": "Aged for at least 30 months in wood, then refined in bottle for at least 3 months."
+    },
+    "awards": []
+  },
+  {
+    "slug": "cq-sangiovese",
+    "short": "Sangiovese",
+    "name": "I Colombi Sangiovese Toscana IGT",
+    "maker": "Castello di Querceto",
+    "type": "red",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "IGT",
+    "grapes": "Sangiovese",
+    "abv": "12,5%",
+    "serve": "14–16°C",
+    "body": 0,
+    "pairings": [
+      "red",
+      "white"
+    ],
+    "notes": {
+      "el": "Οινώδες, ξηρό, ισορροπημένο",
+      "en": "Vinous, dry, well balanced"
+    },
+    "pairsShort": {
+      "el": "Ταλιατέλες με ραγού, ψητό κοτόπουλο, ψητά κρέατα",
+      "en": "Tagliatelle al ragù, roast chicken, grilled meat"
+    },
+    "profile": {
+      "el": "Έντονο ρουμπινί χρώμα με ιώδεις ανταύγειες. Οινώδες μπουκέτο· ξηρό και καλά ισορροπημένο στο στόμα.",
+      "en": "Intense ruby red with violet hints. A vinous bouquet; dry and well balanced on the palate."
+    },
+    "pairing": {
+      "el": "Ιδανικό με ταλιατέλες με ραγού, ψητό κοτόπουλο και ψητά κρέατα.",
+      "en": "Perfect with tagliatelle al ragù, roast chicken and grilled meat."
+    },
+    "making": {
+      "el": "Ο τρύγος ξεκινά στα μέσα Σεπτεμβρίου και η οινοποίηση γίνεται με τον παραδοσιακό τρόπο σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία.",
+      "en": "Harvest begins in mid-September, and the wine is made the traditional way in stainless steel tanks at controlled temperature."
+    },
+    "awards": []
+  },
+  {
+    "slug": "tp-governo",
+    "short": "Governo all'Uso Toscano",
+    "name": "Tenute Poggiocaro Governo all'Uso Toscano IGT Rosso",
+    "maker": "Tenute Poggiocaro",
+    "type": "red",
+    "region": {
+      "el": "Τοσκάνη",
+      "en": "Tuscany"
+    },
+    "appellation": "IGT",
+    "grapes": "Sangiovese, Cabernet, Syrah",
+    "abv": "13%",
+    "serve": "18–20°C",
+    "body": 0,
+    "pairings": [
+      "red",
+      "cheese"
+    ],
+    "notes": {
+      "el": "Κόκκινα φρούτα, μπαχαρικά",
+      "en": "Red fruit, spices"
+    },
+    "pairsShort": {
+      "el": "Κόκκινο κρέας, κυνήγι, ώριμα τυριά",
+      "en": "Red meat, game, mature cheese"
+    },
+    "profile": {
+      "el": "Έντονο ρουμπινί χρώμα. Φρουτώδες μπουκέτο με κόκκινα φρούτα, εμπλουτισμένο με νότες μπαχαρικών. Μαλακό, στρογγυλό και ευχάριστα δροσερό στο στόμα.",
+      "en": "Intense ruby red. A fruity bouquet of red fruit enriched by notes of spice. Soft, round and pleasantly fresh on the palate."
+    },
+    "pairing": {
+      "el": "Εξαιρετικό με κόκκινο κρέας και κυνήγι, υπέροχο με ώριμα τυριά.",
+      "en": "Excellent with red meat and game, and delicious with mature cheese."
+    },
+    "making": {
+      "el": "Το Governo all'uso Toscano αναβιώνει μια παλιά μέθοδο που χαρακτήριζε τα κρασιά του Chianti τον 19ο και τις αρχές του 20ού αιώνα. Σταφύλια της Τοσκάνης, τρυγημένα τον Σεπτέμβριο, ζυμώνονται αρχικά σε ανοξείδωτες δεξαμενές σε ελεγχόμενη θερμοκρασία. Μετά τη μετάγγιση ξεκινά δεύτερη ζύμωση, με την προσθήκη σταφυλιών του ίδιου τρύγου που έχουν αποξηρανθεί για τέσσερις εβδομάδες σε ειδικούς χώρους (fruttai). Η αργή δεύτερη ζύμωση σε μεγάλα tonneaux κάνει το κρασί πιο απαλό, μαλακό και γεμάτο, διατηρώντας τον έντονο χαρακτήρα και την κομψότητα του Sangiovese.",
+      "en": "Governo all'uso Toscano revives an old method that defined Chianti wines in the 19th and early 20th centuries. Tuscan grapes harvested in September first ferment in temperature-controlled stainless steel. After racking, a second fermentation begins as grapes from the same harvest, dried for four weeks in dedicated rooms (fruttai), are added to the wine. This slow second fermentation in large tonneaux makes the wine smoother, softer and fuller, while keeping Sangiovese's strong character and elegance."
+    },
+    "awards": []
   }
 ];
