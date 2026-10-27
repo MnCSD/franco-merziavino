@@ -71,11 +71,13 @@ export function ContactSection({ locale, wines }: { locale: Locale; wines: Local
 
 
 
-  // "Ask us" links arrive as ?wine=<slug>#contact — preselect that wine.
-  useEffect(() => {
-    const w = params.get('wine');
-    if (w) setPicks((p) => (p.includes(w) ? p : [...p, w]));
-  }, [params]);
+  // "Ask us" links arrive as ?wine=<slug>#contact — preselect that wine (once per new slug).
+  const wineParam = params.get('wine');
+  const [seenWine, setSeenWine] = useState<string | null>(null);
+  if (wineParam !== seenWine) {
+    setSeenWine(wineParam);
+    if (wineParam) setPicks((p) => (p.includes(wineParam) ? p : [...p, wineParam]));
+  }
 
   // The gifts section's button preselects "corporate gifts".
   useEffect(() => {

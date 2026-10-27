@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import type { Locale } from '@/types/wine';
@@ -13,10 +13,12 @@ interface Props {
   labels: { menu: string; close: string };
 }
 
+const noSubscribe = () => () => {};
+
 export function MobileMenu({ items, labels }: Props) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  // false on the server and during hydration, true after — the portal needs document.body.
+  const mounted = useSyncExternalStore(noSubscribe, () => true, () => false);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';

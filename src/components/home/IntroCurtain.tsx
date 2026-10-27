@@ -1,32 +1,40 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import styles from './IntroCurtain.module.css';
 
 const NAME = 'Franco Merzia';
 const SESSION_KEY = 'fm-intro-seen';
+
+/** Play or skip, decided once per page load (kept stable so re-renders don't flip it). */
+let decision: 'playing' | 'done' | undefined;
+const decide = () =>
+  (decision ??= window.matchMedia('(prefers-reduced-motion: reduce)').matches || sessionStorage.getItem(SESSION_KEY) ? 'done' : 'playing');
+const noSubscribe = () => () => {};
 
 /**
  * Opening "pour": the FM mark fills like a glass, the name rises letter by letter,
  * then five columns lift to reveal the page. Runs once per session; skipped for reduced motion.
  */
 export function IntroCurtain({ regions, est }: { regions: string; est: string }) {
-  const [state, setState] = useState<'pending' | 'playing' | 'done'>('pending');
+  // 'pending' on the server and during hydration, then the client's decision.
+  const start = useSyncExternalStore(noSubscribe, decide, () => 'pending' as const);
+  const [ended, setEnded] = useState(false);
+  const state = ended ? 'done' : start;
   const ref = useRef<HTMLDivElement>(null);
 
+  // On mount (same commit as HeroRing's effect, which reads data-intro to hold its drop-in).
   useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced || sessionStorage.getItem(SESSION_KEY)) { setState('done'); return; }
+    if (decide() !== 'playing') return;
     sessionStorage.setItem(SESSION_KEY, '1');
     document.documentElement.dataset.intro = 'playing';
-    setState('playing');
   }, []);
 
   useEffect(() => {
     if (state !== 'playing') return;
     const last = ref.current?.querySelector<HTMLElement>('[data-col]:last-child');
-    const end = () => { document.documentElement.dataset.intro = 'done'; setState('done'); };
+    const end = () => { document.documentElement.dataset.intro = 'done'; decision = 'done'; setEnded(true); };
     last?.addEventListener('animationend', end, { once: true });
     const failsafe = window.setTimeout(end, 4200);
     return () => window.clearTimeout(failsafe);
