@@ -23,6 +23,13 @@ export function About({ t }: { t: Dictionary }) {
             <Reveal as="p" className={styles.lede} delay={220}>{a.lede}</Reveal>
           </div>
           <div className={styles.body}>
+            <Reveal as="figure" className={styles.marks} delay={200}>
+              <div className={styles.marksMedia}>
+                <div className={styles.marksClip}>
+                  <Image src="/images/about-logos.jpg" alt="Franco Merzia Vino logos" width={1536} height={1024} sizes="(max-width: 599px) 92vw, 520px" />
+                </div>
+              </div>
+            </Reveal>
             {a.body.map((p, i) => (
               <Reveal key={i} as="p" delay={150 + i * 80}>{p}</Reveal>
             ))}

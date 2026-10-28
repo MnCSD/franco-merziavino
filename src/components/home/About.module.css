@@ -6,12 +6,13 @@
   background: var(--color-accent-900);
 }
 .photo { z-index: -2; object-fit: cover; object-position: center 50%; }
-/* Lighter over the sunset sky, deepening toward the vines and the company cards. */
+/* Light enough to let the sunset glow through; weighted toward the left where the headline sits,
+   deepening only near the cards at the bottom. */
 .veil {
   position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background:
-    linear-gradient(90deg, rgb(38 9 14 / .35) 0%, transparent 60%),
-    linear-gradient(180deg, rgb(38 9 14 / .5) 0%, rgb(38 9 14 / .62) 35%, rgb(38 9 14 / .82) 70%, rgb(38 9 14 / .94) 100%);
+    linear-gradient(90deg, rgb(38 9 14 / .28) 0%, rgb(38 9 14 / .06) 55%, transparent 80%),
+    linear-gradient(180deg, rgb(38 9 14 / .08) 0%, rgb(38 9 14 / .12) 40%, rgb(38 9 14 / .32) 72%, rgb(38 9 14 / .62) 100%);
 }
 /* Seamless hand-off from the hero: start in its solid burgundy and dissolve into the photo (eased stops avoid banding). */
 .veil::before {
@@ -28,7 +29,24 @@
 .tagline { font-size: clamp(20px, 1.8vw, 26px); font-style: italic; font-weight: 500; color: var(--color-accent-2-300); }
 .lede { margin-top: clamp(24px, 3vw, 40px); max-width: 22ch; font-size: clamp(26px, 2.6vw, 40px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; text-wrap: balance; }
 .body { display: flex; flex-direction: column; gap: 16px; max-width: 62ch; }
-.body p { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.65; color: color-mix(in srgb, var(--color-bg) 84%, transparent); text-wrap: pretty; }
+.body p { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.65; color: color-mix(in srgb, var(--color-bg) 88%, transparent); text-wrap: pretty; }
+/* The lighter veil leaves the copy over bright sky; a soft halo keeps it legible without darkening the photo. */
+.top, .history { text-shadow: 0 1px 18px rgb(38 9 14 / .55), 0 1px 2px rgb(38 9 14 / .35); }
+/* Brand logo board, top-right above the body copy: an editorial plate with an offset gold hairline,
+   a curtain-wipe reveal and a slow settle of the image inside it. */
+.marks { align-self: flex-end; width: min(100%, 520px); margin: 0 0 clamp(40px, 5vw, 80px); }
+.marksMedia { position: relative; filter: drop-shadow(0 28px 36px rgb(20 4 8 / .45)); }
+.marksMedia::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  border: 1px solid color-mix(in srgb, var(--color-accent-2-300) 70%, transparent);
+  translate: -14px 14px; transition: translate 1s var(--ease-out);
+}
+.marksClip { overflow: hidden; clip-path: inset(100% 0 0 0); transition: clip-path 1.4s var(--ease-inout) .35s; }
+.marksClip img { display: block; width: 100%; height: auto; scale: 1.18; transition: scale 2s var(--ease-out) .35s; }
+.marks[data-visible='true'] .marksClip { clip-path: inset(0); }
+.marks[data-visible='true'] .marksClip img { scale: 1; }
+.marks:hover .marksMedia::before { translate: 0 0; }
+.marks[data-visible='true']:hover .marksClip img { scale: 1.035; transition-delay: 0s; transition-duration: 1.2s; }
 
 .history { margin-top: clamp(64px, 8vw, 120px); padding-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--on-dark-border); align-items: start; }
 .historyTitle { margin-bottom: 8px; font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.035em; line-height: 1; }
@@ -60,5 +78,7 @@
 @media (max-width: 599px) {
   .card { grid-template-columns: 1fr; }
   .plate { max-width: 220px; }
-  .veil { background: linear-gradient(180deg, rgb(38 9 14 / .68), rgb(38 9 14 / .9)); }
+  .veil { background: linear-gradient(180deg, rgb(38 9 14 / .25), rgb(38 9 14 / .38) 50%, rgb(38 9 14 / .68)); }
+  .marks { align-self: flex-end; width: calc(100% - 10px); }
+  .marksMedia::before { translate: -10px 10px; }
 }
