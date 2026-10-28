@@ -26,7 +26,7 @@ export function About({ t }: { t: Dictionary }) {
             <Reveal as="figure" className={styles.marks} delay={200}>
               <div className={styles.marksMedia}>
                 <div className={styles.marksClip}>
-                  <Image src="/images/about-logos.jpg" alt="Franco Merzia Vino logos" width={1536} height={1024} sizes="(max-width: 599px) 92vw, 520px" />
+                  <Image src="/images/about-italy-greece.jpg" alt="Franco Merzia Vino — from Italy to Greece" width={1000} height={939} sizes="(max-width: 599px) 92vw, 440px" />
                 </div>
               </div>
             </Reveal>

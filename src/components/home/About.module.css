@@ -32,9 +32,9 @@
 .body p { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.65; color: color-mix(in srgb, var(--color-bg) 88%, transparent); text-wrap: pretty; }
 /* The lighter veil leaves the copy over bright sky; a soft halo keeps it legible without darkening the photo. */
 .top, .history { text-shadow: 0 1px 18px rgb(38 9 14 / .55), 0 1px 2px rgb(38 9 14 / .35); }
-/* Brand logo board, top-right above the body copy: an editorial plate with an offset gold hairline,
+/* Italy → Greece brand plate, top-right above the body copy: an editorial plate with an offset gold hairline,
    a curtain-wipe reveal and a slow settle of the image inside it. */
-.marks { align-self: flex-end; width: min(100%, 520px); margin: 0 0 clamp(40px, 5vw, 80px); }
+.marks { align-self: flex-end; width: min(100%, 440px); margin: 0 0 clamp(40px, 5vw, 80px); }
 .marksMedia { position: relative; filter: drop-shadow(0 28px 36px rgb(20 4 8 / .45)); }
 .marksMedia::before {
   content: ''; position: absolute; inset: 0; z-index: -1;
