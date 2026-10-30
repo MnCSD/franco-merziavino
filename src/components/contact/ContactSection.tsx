@@ -13,7 +13,7 @@ import styles from './ContactSection.module.css';
 
 const KINDS: EnquiryKind[] = ['wholesale', 'catalog', 'gifts', 'other'];
 const PHONE = { label: '6972 805 605', href: 'tel:+306972805605' };
-const EMAIL = 'francomerziavino@gmail.com';
+const EMAIL = 'info@francomerziavino.gr';
 const INSTAGRAM = { label: '@francomerziavino', href: 'https://www.instagram.com/francomerziavino/' };
 const MAPS = 'https://www.google.com/maps/search/?api=1&query=Αργοναυτών+24+Ζωγράφου+15772';
 /** Optional fields that pour wine into the progress glass (name and contact are required too). */
