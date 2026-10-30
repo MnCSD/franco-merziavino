@@ -6,8 +6,9 @@ import type { ContactState } from '@/components/contact/types';
 import { LOGO_CID, enquiryHtml, enquirySubject, enquiryText, type Enquiry } from './enquiryEmail';
 
 /**
- * Contact enquiry, emailed through Gmail SMTP. Needs SMTP_USER + SMTP_PASS (a Google App password)
- * in the environment; CONTACT_TO overrides the recipient (defaults to SMTP_USER).
+ * Contact enquiry, emailed over SMTP. Needs SMTP_USER + SMTP_PASS in the environment. SMTP_HOST (+ optional
+ * SMTP_PORT, default 465 over TLS) selects the server, e.g. Papaki's smtp-gr.securemail.pro; without it Gmail
+ * is used and SMTP_PASS must be a Google App password. CONTACT_TO overrides the recipient (defaults to SMTP_USER).
  * Without credentials the enquiry is only logged. Validation runs here so it can't be bypassed from the client.
  */
 export async function sendEnquiry(_prev: ContactState, form: FormData): Promise<ContactState> {
@@ -27,14 +28,18 @@ export async function sendEnquiry(_prev: ContactState, form: FormData): Promise<
     message: String(form.get('message') ?? '').trim(),
   };
 
-  const { SMTP_USER: user, SMTP_PASS: pass, CONTACT_TO: to } = process.env;
+  const { SMTP_HOST: host, SMTP_PORT, SMTP_USER: user, SMTP_PASS: pass, CONTACT_TO: to } = process.env;
   if (!user || !pass) {
     console.info('[enquiry]', payload);
     return { status: 'sent' };
   }
 
+  const port = Number(SMTP_PORT) || 465;
+  // 465 is implicit TLS; other ports (587) upgrade via STARTTLS.
+  const server = host ? { host, port, secure: port === 465 } : { service: 'gmail' };
+
   try {
-    await nodemailer.createTransport({ service: 'gmail', auth: { user, pass } }).sendMail({
+    await nodemailer.createTransport({ ...server, auth: { user, pass } }).sendMail({
       from: `"Franco Merzia Vino · Website" <${user}>`,
       to: to || user,
       // Reply straight to the visitor when they left an email address.
